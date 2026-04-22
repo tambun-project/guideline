@@ -42,7 +42,7 @@ body { font-family: 'Hiragino Sans','Hiragino Kaku Gothic ProN','Noto Sans JP',s
 .body { background: var(--warm-wh); border-radius: 0 0 16px 16px; padding: 0 48px 48px; box-shadow: 0 4px 32px rgba(40,30,20,.08); }
 
 /* ── Tabs ── */
-.tabs { display: flex; gap: 0; border-bottom: 2px solid var(--gray-l); margin: 0 -48px 36px; padding: 0 48px; position: sticky; top: 0; background: var(--warm-wh); z-index: 10; }
+.tabs { display: flex; flex-wrap: wrap; gap: 0; border-bottom: 2px solid var(--gray-l); margin: 0 -48px 36px; padding: 0 48px; position: sticky; top: 0; background: var(--warm-wh); z-index: 10; }
 .tab { padding: 16px 20px 14px; font-size: 13px; font-weight: 500; color: var(--gray-m); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: all .18s; white-space: nowrap; }
 .tab:hover { color: var(--gray-d); }
 .tab.active { color: var(--forest); border-bottom-color: var(--forest); }
@@ -143,15 +143,9 @@ body { font-family: 'Hiragino Sans','Hiragino Kaku Gothic ProN','Noto Sans JP',s
   .tabs {
     margin: 0 -24px 28px;
     padding: 0 24px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
   }
-  .tabs::-webkit-scrollbar { height: 3px; }
-  .tabs::-webkit-scrollbar-thumb { background: var(--gray-b); border-radius: 2px; }
-  .tab { padding: 14px 14px 12px; font-size: 12.5px; flex-shrink: 0; }
+  .tab { padding: 12px 14px 10px; font-size: 12.5px; }
 
   .sec-head { font-size: 16px; margin: 24px 0 12px; }
   .sec-sub { font-size: 11.5px; }
@@ -198,7 +192,7 @@ body { font-family: 'Hiragino Sans','Hiragino Kaku Gothic ProN','Noto Sans JP',s
   .body { padding: 0 18px 28px; border-radius: 0; }
 
   .tabs { margin: 0 -18px 24px; padding: 0 18px; }
-  .tab { padding: 12px 12px 10px; font-size: 12px; }
+  .tab { padding: 10px 11px 8px; font-size: 11.5px; }
 
   .sec-head { font-size: 15px; margin: 20px 0 10px; padding-bottom: 8px; }
 
@@ -272,7 +266,7 @@ body { font-family: 'Hiragino Sans','Hiragino Kaku Gothic ProN','Noto Sans JP',s
     <div class="cover-updated">
       <span class="label">LAST UPDATED</span>
       <strong>2026年4月22日</strong>
-      <span style="opacity:.6">/ ver. 2.1</span>
+      <span style="opacity:.6">/ ver. 2.2</span>
     </div>
   </div>
 
@@ -1335,7 +1329,6 @@ function show(key) {
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   document.getElementById('sec-' + key).classList.add('active');
   event.target.classList.add('active');
-  event.target.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 function copyText(btn) {
