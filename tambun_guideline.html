@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tambun Project — デザイン & コンテンツガイドライン</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --forest:  #3B6147;
+  --sage:    #5C8A65;
+  --sage-l:  #EAF2EB;
+  --sage-ll: #F3F8F4;
+  --amber:   #C4956A;
+  --amber-l: #FDF3E6;
+  --rose:    #B5685A;
+  --rose-l:  #F5EAE8;
+  --cream:   #FBF8F4;
+  --warm-wh: #FFFCF8;
+  --gray-d:  #2C2926;
+  --gray-m:  #7A736D;
+  --gray-l:  #EDE8E3;
+  --gray-b:  #D9D3CC;
+  --ig:      #8B5E9E;
+  --fb:      #3A6EA5;
+  --yt:      #B04040;
+}
+body { font-family: 'Hiragino Sans','Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif; background: #F0EDE7; color: var(--gray-d); font-size: 14px; line-height: 1.75; }
+
+/* ── Layout ── */
+.page { max-width: 860px; margin: 36px auto 80px; }
+.cover { background: var(--forest); border-radius: 16px 16px 0 0; padding: 48px 48px 40px; position: relative; overflow: hidden; }
+.cover::before { content:""; position:absolute; right:-60px; top:-60px; width:280px; height:280px; border-radius:50%; background:rgba(255,255,255,.05); }
+.cover::after  { content:""; position:absolute; right:40px; bottom:-40px; width:160px; height:160px; border-radius:50%; background:rgba(255,255,255,.04); }
+.cover-label { font-size: 12px; color: #A8C4AD; letter-spacing: .1em; margin-bottom: 10px; }
+.cover-title { font-family: Georgia, serif; font-size: 32px; font-weight: 700; color: #fff; margin-bottom: 8px; line-height: 1.25; }
+.cover-sub { font-size: 13px; color: #A8C4AD; font-style: italic; }
+.cover-updated { display: inline-flex; align-items: center; gap: 8px; margin-top: 18px; padding: 5px 14px; background: rgba(255,255,255,.12); border: 0.5px solid rgba(255,255,255,.25); border-radius: 20px; font-size: 11px; color: #fff; letter-spacing: .04em; }
+.cover-updated strong { color: #fff; font-weight: 600; }
+.cover-updated .label { color: #A8C4AD; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
+.cover-updated .update-note { color: #A8C4AD; font-size: 10px; font-style: italic; }
+.tab-new { display: inline-block; font-size: 9px; font-weight: 700; color: #fff; background: var(--rose); border-radius: 4px; padding: 1px 5px; margin-left: 4px; vertical-align: middle; letter-spacing: .04em; line-height: 1.6; }
+
+.body { background: var(--warm-wh); border-radius: 0 0 16px 16px; padding: 0 48px 48px; box-shadow: 0 4px 32px rgba(40,30,20,.08); }
+
+/* ── Tabs ── */
+.tabs { display: flex; gap: 0; border-bottom: 2px solid var(--gray-l); margin: 0 -48px 36px; padding: 0 48px; position: sticky; top: 0; background: var(--warm-wh); z-index: 10; }
+.tab { padding: 16px 20px 14px; font-size: 13px; font-weight: 500; color: var(--gray-m); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: all .18s; white-space: nowrap; }
+.tab:hover { color: var(--gray-d); }
+.tab.active { color: var(--forest); border-bottom-color: var(--forest); }
+
+.section { display: none; }
+.section.active { display: block; }
+
+/* ── Section header ── */
+.sec-head { font-family: Georgia, serif; font-size: 18px; font-weight: 700; color: var(--forest); margin: 32px 0 14px; padding-bottom: 10px; border-bottom: 1.5px solid var(--gray-l); }
+.sec-sub { font-size: 12px; color: var(--gray-m); margin-top: -10px; margin-bottom: 16px; }
+
+/* ── Color swatches ── */
+.swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px; margin-bottom: 20px; }
+.swatch { border-radius: 10px; overflow: hidden; border: 0.5px solid var(--gray-b); }
+.swatch-color { height: 64px; }
+.swatch-info { padding: 8px 10px; background: var(--warm-wh); }
+.swatch-name { font-size: 11px; font-weight: 600; color: var(--gray-d); }
+.swatch-hex  { font-size: 10px; color: var(--gray-m); font-family: monospace; }
+.swatch-use  { font-size: 10px; color: var(--gray-m); margin-top: 2px; }
+
+/* ── Typography scale ── */
+.type-row { display: flex; align-items: baseline; gap: 16px; padding: 14px 0; border-bottom: 0.5px solid var(--gray-l); }
+.type-label { width: 130px; font-size: 11px; color: var(--gray-m); flex-shrink: 0; }
+.type-sample { flex: 1; }
+.type-spec { font-size: 11px; color: var(--gray-m); font-family: monospace; white-space: nowrap; }
+
+/* ── Image rules ── */
+.img-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+.img-rule { border-radius: 10px; padding: 16px 18px; }
+.img-rule.ok { background: var(--sage-l); border-left: 3px solid var(--sage); }
+.img-rule.ng { background: var(--rose-l); border-left: 3px solid var(--rose); }
+.img-rule-head { font-size: 12px; font-weight: 600; color: var(--sage); margin-bottom: 8px; }
+.img-rule.ng .img-rule-head { color: var(--rose); }
+.img-rule-item { font-size: 12px; color: var(--gray-d); line-height: 1.7; margin-bottom: 4px; display: flex; gap: 6px; }
+.img-rule-item::before { content: "・"; flex-shrink: 0; }
+.img-rule.ng .img-rule-item::before { content: "✕"; color: var(--rose); }
+
+/* ── Markdown templates ── */
+.platform-section { margin-bottom: 28px; }
+.platform-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 20px; font-size: 12px; font-weight: 700; color: #fff; margin-bottom: 14px; }
+.template-box { background: var(--cream); border: 0.5px solid var(--gray-b); border-radius: 10px; padding: 18px 20px; position: relative; margin-bottom: 10px; }
+.template-box pre { font-family: 'Hiragino Sans', sans-serif; font-size: 12.5px; color: var(--gray-d); white-space: pre-wrap; line-height: 1.85; }
+.template-box .copy-btn { position: absolute; top: 12px; right: 12px; background: var(--forest); color: #fff; border: none; border-radius: 6px; padding: 4px 12px; font-size: 11px; cursor: pointer; opacity: 0; transition: opacity .18s; }
+.template-box:hover .copy-btn { opacity: 1; }
+.copy-btn:active { background: var(--sage); }
+.template-note { font-size: 11.5px; color: var(--gray-m); margin-bottom: 14px; line-height: 1.7; }
+
+/* ── Hashtags ── */
+.hashtag-group { margin-bottom: 16px; }
+.hashtag-label { font-size: 11px; font-weight: 600; color: var(--gray-m); margin-bottom: 8px; text-transform: uppercase; letter-spacing: .06em; }
+.hashtag-wrap { display: flex; flex-wrap: wrap; gap: 6px; }
+.hashtag { font-size: 12px; color: var(--forest); background: var(--sage-l); padding: 3px 10px; border-radius: 10px; cursor: pointer; transition: background .15s; }
+.hashtag:hover { background: #c8dfc9; }
+.hashtag.ig { color: var(--ig); background: #f2eaf7; }
+.hashtag.en { color: var(--fb); background: #e6eef6; }
+
+/* ── Voice rules ── */
+.voice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+.voice-card { border-radius: 10px; padding: 14px 16px; }
+.voice-card.ok { background: var(--sage-l); }
+.voice-card.ng { background: var(--rose-l); }
+.voice-head { font-size: 12px; font-weight: 700; margin-bottom: 10px; }
+.voice-head.ok { color: var(--sage); }
+.voice-head.ng { color: var(--rose); }
+.voice-ex { font-size: 12.5px; color: var(--gray-d); line-height: 1.75; margin-bottom: 6px; padding: 8px 12px; background: rgba(255,255,255,.7); border-radius: 6px; }
+.voice-ex small { display: block; font-size: 11px; color: var(--gray-m); margin-top: 3px; }
+
+/* ── CTA ── */
+.cta-row { display: flex; gap: 8px; margin-bottom: 8px; align-items: flex-start; }
+.cta-type { width: 80px; font-size: 11px; font-weight: 600; color: var(--amber); flex-shrink: 0; padding-top: 2px; }
+.cta-text { flex: 1; font-size: 13px; color: var(--gray-d); background: var(--amber-l); border-radius: 6px; padding: 6px 12px; line-height: 1.65; }
+
+/* ── Misc ── */
+.info-box { background: var(--sage-l); border-left: 3px solid var(--sage); border-radius: 0 8px 8px 0; padding: 12px 16px; font-size: 12.5px; color: var(--gray-d); line-height: 1.75; margin-bottom: 14px; }
+.warn-box { background: var(--amber-l); border-left: 3px solid var(--amber); border-radius: 0 8px 8px 0; padding: 12px 16px; font-size: 12.5px; color: var(--gray-d); line-height: 1.75; margin-bottom: 14px; }
+.rule-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; }
+.rule-table th { background: var(--forest); color: #fff; font-size: 11px; font-weight: 600; padding: 8px 12px; text-align: left; }
+.rule-table td { font-size: 12px; color: var(--gray-d); padding: 9px 12px; border-bottom: 0.5px solid var(--gray-l); line-height: 1.6; vertical-align: top; }
+.rule-table tr:nth-child(even) td { background: var(--cream); }
+
+/* ══════════════════════════════════════════ */
+/* RESPONSIVE — タブレット（768px以下） */
+/* ══════════════════════════════════════════ */
+@media (max-width: 768px) {
+  body { font-size: 14px; }
+  .page { margin: 16px auto 40px; }
+  .cover { border-radius: 12px 12px 0 0; padding: 32px 24px 28px; }
+  .cover::before { width: 180px; height: 180px; right: -40px; top: -40px; }
+  .cover::after { width: 100px; height: 100px; right: 20px; bottom: -20px; }
+  .cover-title { font-size: 24px; }
+  .cover-label { font-size: 11px; }
+  .cover-sub { font-size: 12px; }
+  .cover-updated { font-size: 10.5px; padding: 4px 11px; margin-top: 14px; gap: 6px; }
+  .cover-updated .label { font-size: 9px; }
+
+  .body { padding: 0 24px 36px; border-radius: 0 0 12px 12px; }
+
+  .tabs {
+    margin: 0 -24px 28px;
+    padding: 0 24px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    flex-wrap: nowrap;
+  }
+  .tabs::-webkit-scrollbar { height: 3px; }
+  .tabs::-webkit-scrollbar-thumb { background: var(--gray-b); border-radius: 2px; }
+  .tab { padding: 14px 14px 12px; font-size: 12.5px; flex-shrink: 0; }
+
+  .sec-head { font-size: 16px; margin: 24px 0 12px; }
+  .sec-sub { font-size: 11.5px; }
+
+  .swatches { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .swatch-color { height: 56px; }
+
+  .img-grid, .voice-grid { grid-template-columns: 1fr; gap: 10px; }
+
+  .type-row { flex-direction: column; align-items: flex-start; gap: 4px; padding: 10px 0; }
+  .type-label { width: auto; font-size: 10.5px; }
+  .type-spec { font-size: 10.5px; }
+
+  .template-box { padding: 14px 16px; }
+  .template-box pre { font-size: 12px; line-height: 1.8; }
+  .template-box .copy-btn { opacity: 1; font-size: 10.5px; padding: 4px 10px; }
+  .platform-badge { font-size: 11px; padding: 5px 12px; }
+  .template-note { font-size: 11px; }
+
+  .rule-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; white-space: nowrap; }
+  .rule-table th, .rule-table td { white-space: normal; }
+
+  .hashtag { font-size: 11.5px; padding: 3px 9px; }
+
+  .cta-row { flex-direction: column; gap: 4px; }
+  .cta-type { width: auto; font-size: 10.5px; }
+  .cta-text { font-size: 12.5px; padding: 8px 12px; }
+
+  .info-box, .warn-box { padding: 11px 14px; font-size: 12px; }
+
+  .voice-card { padding: 12px 14px; }
+  .voice-ex { font-size: 12px; padding: 7px 10px; }
+}
+
+/* ══════════════════════════════════════════ */
+/* RESPONSIVE — スマホ（480px以下） */
+/* ══════════════════════════════════════════ */
+@media (max-width: 480px) {
+  .page { margin: 0 auto 24px; }
+  .cover { border-radius: 0; padding: 28px 18px 24px; }
+  .cover-title { font-size: 21px; line-height: 1.3; }
+  .cover-updated { font-size: 10px; padding: 3px 10px; margin-top: 12px; flex-wrap: wrap; }
+
+  .body { padding: 0 18px 28px; border-radius: 0; }
+
+  .tabs { margin: 0 -18px 24px; padding: 0 18px; }
+  .tab { padding: 12px 12px 10px; font-size: 12px; }
+
+  .sec-head { font-size: 15px; margin: 20px 0 10px; padding-bottom: 8px; }
+
+  .swatches { gap: 7px; }
+  .swatch-color { height: 48px; }
+  .swatch-info { padding: 6px 8px; }
+
+  .template-box { padding: 12px 14px; }
+  .template-box pre { font-size: 11.5px; line-height: 1.75; }
+
+  .hashtag { font-size: 11px; padding: 2px 8px; }
+  .hashtag-label { font-size: 10.5px; }
+
+  .info-box, .warn-box { padding: 10px 12px; font-size: 11.5px; }
+
+  [style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
+}
+
+/* ══════════════════════════════════════════ */
+/* PRINT — 印刷時の最適化 */
+/* ══════════════════════════════════════════ */
+@media print {
+  body { background: #fff; font-size: 11px; }
+  .page { max-width: 100%; margin: 0; }
+  .cover { border-radius: 0; }
+  .body { box-shadow: none; padding: 0 24px 24px; }
+  .tabs { display: none; }
+  .section { display: block !important; page-break-inside: avoid; }
+  .section + .section { page-break-before: always; }
+  .copy-btn { display: none !important; }
+}
+
+/* ══════════════════════════════════════════ */
+/* PARTNER CARDS (コラボパートナータブ用) */
+/* ══════════════════════════════════════════ */
+.partner-region-head { display: flex; align-items: center; gap: 12px; margin: 28px 0 16px; padding-bottom: 10px; border-bottom: 2px solid var(--gray-l); }
+.partner-region-flag { font-size: 22px; }
+.partner-region-title { font-family: Georgia, serif; font-size: 18px; font-weight: 700; color: var(--forest); }
+.partner-region-count { font-size: 11px; color: var(--gray-m); margin-left: auto; }
+
+.partner-card { background: var(--warm-wh); border: 0.5px solid var(--gray-b); border-radius: 12px; padding: 18px 20px; margin-bottom: 14px; position: relative; transition: box-shadow .18s; }
+.partner-card:hover { box-shadow: 0 2px 16px rgba(40,30,20,.06); }
+.partner-card.thai { border-left: 4px solid #C8332E; }
+.partner-card.laos { border-left: 4px solid #002868; }
+
+.partner-name { font-size: 15px; font-weight: 700; color: var(--forest); margin-bottom: 4px; line-height: 1.4; }
+.partner-name-en { font-size: 11.5px; color: var(--gray-m); font-style: italic; margin-bottom: 10px; }
+.partner-role { display: inline-block; font-size: 10.5px; padding: 3px 9px; border-radius: 12px; background: var(--sage-l); color: var(--sage); font-weight: 600; margin-bottom: 10px; letter-spacing: .04em; }
+
+.partner-meta { display: grid; grid-template-columns: 90px 1fr; gap: 6px 12px; font-size: 11.5px; color: var(--gray-d); margin-top: 10px; line-height: 1.6; }
+.partner-meta dt { color: var(--gray-m); font-weight: 600; }
+.partner-meta dd { color: var(--gray-d); }
+.partner-meta a { color: var(--forest); text-decoration: none; border-bottom: 0.5px solid var(--sage); }
+
+.partner-relation { background: var(--sage-l); border-radius: 8px; padding: 10px 12px; margin-top: 12px; font-size: 11.5px; color: var(--gray-d); line-height: 1.7; }
+.partner-relation strong { color: var(--forest); }
+
+@media (max-width: 480px) {
+  .partner-meta { grid-template-columns: 80px 1fr; font-size: 11px; }
+  .partner-card { padding: 14px 16px; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="cover">
+    <div class="cover-label">BRAND & CONTENT GUIDELINE</div>
+    <div class="cover-title">Tambun Project<br>デザイン & 投稿ガイドライン</div>
+    <div class="cover-sub">SNS運用チーム共有資料</div>
+    <div class="cover-updated">
+      <span class="label">LAST UPDATED</span>
+      <strong>2026年5月1日</strong>
+      <span style="opacity:.6">/ ver. 1.9</span>
+      <span class="update-note">― 📅 スケジュールタブ追加</span>
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="tabs">
+      <div class="tab active" onclick="show('design')">🎨 デザイン</div>
+      <div class="tab" onclick="show('photo')">📷 写真ルール</div>
+      <div class="tab" onclick="show('voice')">🗣 ボイス</div>
+      <div class="tab" onclick="show('template')">📝 投稿テンプレ</div>
+      <div class="tab" onclick="show('hashtag')">＃ ハッシュタグ</div>
+      <div class="tab" onclick="show('partner')">🤝 コラボパートナー</div>
+      <div class="tab" onclick="show('benchmark')" style="color:var(--amber)">🔍 参考ブランド分析</div>
+      <div class="tab" onclick="show('schedule')" style="color:var(--forest);font-weight:600">📅 スケジュール<span class="tab-new">NEW</span></div>
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- TAB 1: DESIGN -->
+    <!-- ══════════════════════════════════════════ -->
+    <div id="sec-design" class="section active">
+
+      <div class="sec-head">カラーパレット</div>
+      <p class="sec-sub">HPの水彩タッチに合わせた温かみのある配色。ビビッドな色は使わない。</p>
+
+      <div class="sec-head" style="font-size:14px;border:none;margin-top:4px;margin-bottom:10px;color:var(--gray-m)">Primary — メインカラー</div>
+      <div class="swatches">
+        <div class="swatch"><div class="swatch-color" style="background:#3B6147"></div><div class="swatch-info"><div class="swatch-name">Forest</div><div class="swatch-hex">#3B6147</div><div class="swatch-use">ヘッダー・見出し</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#5C8A65"></div><div class="swatch-info"><div class="swatch-name">Sage</div><div class="swatch-hex">#5C8A65</div><div class="swatch-use">アクセント・✓マーク</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#EAF2EB"></div><div class="swatch-info"><div class="swatch-name">Sage Light</div><div class="swatch-hex">#EAF2EB</div><div class="swatch-use">背景・カード</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#FBF8F4"></div><div class="swatch-info"><div class="swatch-name">Cream</div><div class="swatch-hex">#FBF8F4</div><div class="swatch-use">ページ背景</div></div></div>
+      </div>
+
+      <div class="sec-head" style="font-size:14px;border:none;margin-top:4px;margin-bottom:10px;color:var(--gray-m)">Secondary — サブカラー</div>
+      <div class="swatches">
+        <div class="swatch"><div class="swatch-color" style="background:#C4956A"></div><div class="swatch-info"><div class="swatch-name">Warm Amber</div><div class="swatch-hex">#C4956A</div><div class="swatch-use">注意・CTA</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#FDF3E6"></div><div class="swatch-info"><div class="swatch-name">Amber Light</div><div class="swatch-hex">#FDF3E6</div><div class="swatch-use">背景・ノート</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#B5685A"></div><div class="swatch-info"><div class="swatch-name">Dusty Rose</div><div class="swatch-hex">#B5685A</div><div class="swatch-use">重要・警告</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#F5E8E8"></div><div class="swatch-info"><div class="swatch-name">Rose Light</div><div class="swatch-hex">#F5E8E8</div><div class="swatch-use">背景</div></div></div>
+      </div>
+
+      <div class="sec-head" style="font-size:14px;border:none;margin-top:4px;margin-bottom:10px;color:var(--gray-m)">Neutral — テキスト・ボーダー</div>
+      <div class="swatches">
+        <div class="swatch"><div class="swatch-color" style="background:#2C2926"></div><div class="swatch-info"><div class="swatch-name">Warm Black</div><div class="swatch-hex">#2C2926</div><div class="swatch-use">本文テキスト</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#7A736D"></div><div class="swatch-info"><div class="swatch-name">Warm Gray</div><div class="swatch-hex">#7A736D</div><div class="swatch-use">補足テキスト</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#EDE8E3"></div><div class="swatch-info"><div class="swatch-name">Light Gray</div><div class="swatch-hex">#EDE8E3</div><div class="swatch-use">区切り線・背景</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#D9D3CC"></div><div class="swatch-info"><div class="swatch-name">Border</div><div class="swatch-hex">#D9D3CC</div><div class="swatch-use">ボーダー</div></div></div>
+      </div>
+
+      <div class="sec-head">タイポグラフィ</div>
+      <p class="sec-sub">見出しはGeorgia系セリフ、本文はゴシック。サイズは以下の7段階のみ使う。</p>
+
+      <div class="type-row">
+        <div class="type-label">大見出し / H1</div>
+        <div class="type-sample"><span style="font-family:Georgia,serif;font-size:28px;font-weight:700;color:#3B6147">Tambun Project</span></div>
+        <div class="type-spec">Georgia / 28px / Bold / Forest</div>
+      </div>
+      <div class="type-row">
+        <div class="type-label">中見出し / H2</div>
+        <div class="type-sample"><span style="font-family:Georgia,serif;font-size:20px;font-weight:700;color:#3B6147">音楽でつながる</span></div>
+        <div class="type-spec">Georgia / 20px / Bold / Forest</div>
+      </div>
+      <div class="type-row">
+        <div class="type-label">小見出し / H3</div>
+        <div class="type-sample"><span style="font-size:15px;font-weight:600;color:#2C2926">With no borders</span></div>
+        <div class="type-spec">Sans / 15px / 600 / Warm Black</div>
+      </div>
+      <div class="type-row">
+        <div class="type-label">本文 / Body</div>
+        <div class="type-sample"><span style="font-size:14px;color:#2C2926">優しい輪が広がる。あなたの善意がタイの子どもたちに届きます。</span></div>
+        <div class="type-spec">Sans / 14px / 400 / Warm Black</div>
+      </div>
+      <div class="type-row">
+        <div class="type-label">補足 / Caption</div>
+        <div class="type-sample"><span style="font-size:12px;color:#7A736D">2025年タイ・ラオスツアーより / Bangkok, Thailand</span></div>
+        <div class="type-spec">Sans / 12px / 400 / Warm Gray</div>
+      </div>
+      <div class="type-row">
+        <div class="type-label">バッジ / Tag</div>
+        <div class="type-sample"><span style="font-size:11px;font-weight:600;color:#5C8A65;background:#EAF2EB;padding:2px 10px;border-radius:10px">音楽×国際協力</span></div>
+        <div class="type-spec">Sans / 11px / 600 / Sage</div>
+      </div>
+      <div class="type-row" style="border:none">
+        <div class="type-label">引用 / Quote</div>
+        <div class="type-sample"><span style="font-size:14px;font-style:italic;color:#5C8A65;font-family:Georgia,serif">「タンブン」とは、タイ語で徳を積むこと。</span></div>
+        <div class="type-spec">Georgia / 14px / Italic / Sage</div>
+      </div>
+
+      <div class="sec-head">SNS別カラーアクセント</div>
+      <div class="info-box">各SNSプラットフォームのカラーは、ブランドカラーをそのまま使わず「彩度を落としたソフトトーン」で統一します。</div>
+      <div class="swatches">
+        <div class="swatch"><div class="swatch-color" style="background:#8B5E9E"></div><div class="swatch-info"><div class="swatch-name">Instagram</div><div class="swatch-hex">#8B5E9E</div><div class="swatch-use">Muted Purple</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#3A6EA5"></div><div class="swatch-info"><div class="swatch-name">Facebook</div><div class="swatch-hex">#3A6EA5</div><div class="swatch-use">Muted Blue</div></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#B04040"></div><div class="swatch-info"><div class="swatch-name">YouTube</div><div class="swatch-hex">#B04040</div><div class="swatch-use">Muted Red</div></div></div>
+      </div>
+
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- TAB 2: PHOTO RULES -->
+    <!-- ══════════════════════════════════════════ -->
+    <div id="sec-photo" class="section">
+
+      <div class="sec-head">写真・ビジュアルのルール</div>
+      <p class="sec-sub">参考：ヘラルボニーのような「きれいで統一感のあるSNS」が目標。</p>
+
+      <div class="img-grid">
+        <div class="img-rule ok">
+          <div class="img-rule-head">✓ 使いたい写真</div>
+          <div class="img-rule-item">子どもたちの自然な笑顔・躍動感のある瞬間</div>
+          <div class="img-rule-item">音楽を演奏・聴いている表情のアップ</div>
+          <div class="img-rule-item">現地の緑・花・市場など温かみのある風景</div>
+          <div class="img-rule-item">メンバーと子どもたちが一緒にいるシーン</div>
+          <div class="img-rule-item">楽器・手元・足元などのディテールショット</div>
+          <div class="img-rule-item">コンサート会場・ステージ全体の美しい光景</div>
+          <div class="img-rule-item">スタッフ・メンバーの真剣な顔・準備シーン</div>
+        </div>
+        <div class="img-rule ng">
+          <div class="img-rule-head">✕ 避けたい写真</div>
+          <div class="img-rule-item">貧しさや悲しみを強調した構図</div>
+          <div class="img-rule-item">子どもたちを「かわいそう」に見せる文脈</div>
+          <div class="img-rule-item">暗い・ブレ・ピンぼけで低品質な写真</div>
+          <div class="img-rule-item">過度に加工されすぎた不自然な色合い</div>
+          <div class="img-rule-item">人物の許可なく撮影された写真</div>
+          <div class="img-rule-item">スラム・貧困地区を強調するような構図</div>
+        </div>
+      </div>
+
+      <div class="sec-head">写真加工ルール</div>
+      <table class="rule-table">
+        <tr><th>項目</th><th>ルール</th><th>理由</th></tr>
+        <tr><td>明るさ</td><td>自然な明るさを基準に、やや明るめ（+5〜15）</td><td>温かみと清潔感を両立</td></tr>
+        <tr><td>彩度</td><td>彩度はやや控えめ（-5〜10）で落ち着いた印象に</td><td>ヘラルボニーらしい上品さ</td></tr>
+        <tr><td>色温度</td><td>ウォームトーン（やや黄み寄り）に統一</td><td>クリーム系パレットとの整合性</td></tr>
+        <tr><td>フィルター</td><td>Lightroom「Fade」や「Warm」系。激しいフィルター不使用</td><td>過度な加工は信頼感を損なう</td></tr>
+        <tr><td>テキスト挿入</td><td>Forestグリーン or クリーム系のみ。フォントはセリフ推奨</td><td>ブランドの統一感</td></tr>
+        <tr><td>余白</td><td>余白（ホワイトスペース）を意識的に取る</td><td>「きれいで整理された印象」</td></tr>
+        <tr><td>正方形比率</td><td>Instagramは1:1または4:5（縦型）を基本に</td><td>フィード全体の統一感</td></tr>
+      </table>
+
+      <div class="sec-head">フィードの統一感</div>
+      <div class="info-box">投稿する写真は「3枚ずつ同じトーン」でまとめるか、交互パターン（風景→人物→ディテール）を繰り返すとフィード全体が美しく見える。投稿前に必ずフィード全体で見え方を確認する。</div>
+      <div class="warn-box">ツアー中に大量投稿→その後長期間沈黙、というパターンは統一感を壊す。ツアー後も週1〜2本、ストック写真で定期投稿を維持する。</div>
+
+      <div class="sec-head">📸 撮影者クレジット表記ルール</div>
+      <div class="info-box">
+        Tambunの活動写真の多くは、<strong>プロのカメラマンの方々がボランティアで撮影してくださっています</strong>。投稿時には必ず撮影者のお名前を明記し、可能な限りSNSアカウントもタグ付けして敬意とお礼を示します。
+      </div>
+
+      <div class="sec-head" style="font-size:14px;border:none;margin-top:18px;margin-bottom:10px;color:var(--gray-m)">撮影者の特定方法</div>
+      <p style="font-size:12.5px;color:var(--gray-d);line-height:1.8;margin-bottom:14px">
+        Googleフォトのアルバム名末尾に撮影者名が記載されています。<br>
+        例：<code style="background:var(--cream);padding:2px 8px;border-radius:4px;font-family:monospace;font-size:11.5px">2024_バンコクツアー_鈴木舞</code> → 撮影者：鈴木舞さん<br>
+        例：<code style="background:var(--cream);padding:2px 8px;border-radius:4px;font-family:monospace;font-size:11.5px">2025_ラオスツアー_和田浩</code> → 撮影者：和田浩さん
+      </p>
+
+      <div class="warn-box">
+        <strong>⚠️ 投稿前に必ず確認</strong><br>
+        写真をダウンロード／保存する前に、<strong>そのアルバム名の末尾を必ず確認</strong>。撮影者名が不明な写真は使用せず、まどかさんに撮影者を確認してから投稿する。
+      </div>
+
+      <div class="sec-head" style="font-size:14px;border:none;margin-top:18px;margin-bottom:10px;color:var(--gray-m)">表記ルール</div>
+
+      <table class="rule-table">
+        <tr><th style="width:25%">項目</th><th>ルール</th></tr>
+        <tr>
+          <td><strong>表記言語</strong></td>
+          <td>原則 <strong>英文表記（ローマ字）</strong>。例：Mai Suzuki / Hiroshi Wada<br>※プロカメラマンとしての国際的なクレジット形式に合わせる</td>
+        </tr>
+        <tr>
+          <td><strong>SNSアカウント</strong></td>
+          <td>撮影者の公式アカウントが分かる場合、<strong>必ずタグ付け／@メンション</strong>する</td>
+        </tr>
+        <tr>
+          <td><strong>表記の冠詞</strong></td>
+          <td>「📸 Photo by 〇〇」または「📷 Photo: 〇〇」で統一</td>
+        </tr>
+        <tr>
+          <td><strong>複数枚で撮影者が違う場合</strong></td>
+          <td>各撮影者を全員クレジット。例：「📸 Photo by Mai Suzuki, Hiroshi Wada」</td>
+        </tr>
+        <tr>
+          <td><strong>表記位置</strong></td>
+          <td>キャプションの<strong>末尾</strong>（ハッシュタグの直前）に配置</td>
+        </tr>
+      </table>
+
+      <div class="sec-head" style="font-size:14px;border:none;margin-top:18px;margin-bottom:10px;color:var(--gray-m)">SNS別の表記例</div>
+
+      <div class="platform-section">
+        <div class="platform-badge" style="background:#8B5E9E">📷 Instagram</div>
+        <div class="template-box">
+          <button class="copy-btn" onclick="copyText(this)">コピー</button>
+          <pre>（投稿本文）
+
+──────────
+📸 Photo by Mai Suzuki (@mai_suzuki_photo)
+
+#TambunProject #MusicWithNoBorders
+#タイ #国際協力 #musicforkids</pre>
+        </div>
+      </div>
+
+      <div class="platform-section">
+        <div class="platform-badge" style="background:#3A6EA5">f Facebook</div>
+        <div class="template-box">
+          <button class="copy-btn" onclick="copyText(this)">コピー</button>
+          <pre>（投稿本文）
+
+──────────
+📸 Photo by Mai Suzuki
+※ プロカメラマンの鈴木舞さんに、ボランティアで撮影いただきました。
+心より感謝いたします。</pre>
+        </div>
+      </div>
+
+      <div class="voice-grid" style="margin-top:18px">
+        <div class="voice-card ok">
+          <div class="voice-head ok">✅ OK例</div>
+          <div class="voice-ex">📸 Photo by Mai Suzuki (@mai_suzuki_photo)<small>英文表記＋アカウントタグ付け</small></div>
+          <div class="voice-ex">📸 Photo by Hiroshi Wada<small>英文表記（アカウント不明の場合）</small></div>
+          <div class="voice-ex">📸 Photo by Mai Suzuki, Hiroshi Wada<small>複数撮影者を全員クレジット</small></div>
+        </div>
+        <div class="voice-card ng">
+          <div class="voice-head ng">❌ NG例</div>
+          <div class="voice-ex">写真：鈴木舞<small>日本語表記は避ける（国際性を損なう）</small></div>
+          <div class="voice-ex">（撮影者クレジットなし）<small>無記載は撮影者への礼を欠く重大な違反</small></div>
+          <div class="voice-ex">📸 Photo by 撮影：プロカメラマン<small>固有名詞をぼかすのは失礼</small></div>
+        </div>
+      </div>
+
+      <div class="warn-box">
+        <strong>📋 撮影者リストの管理</strong><br>
+        各撮影者の<strong>正式英文表記</strong>と<strong>SNSアカウント</strong>を一覧管理することを推奨。新メンバーが投稿する際にも統一表記が保てる。<br>
+        ※リスト作成は次回MTG後の宿題として、まどかさん経由で各撮影者に直接確認することが望ましい。
+      </div>
+
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- TAB 3: VOICE -->
+    <!-- ══════════════════════════════════════════ -->
+    <div id="sec-voice" class="section">
+
+      <div class="sec-head">ブランドボイスとは</div>
+      <div class="info-box">Tambun Projectが話すときの「人格・口調・視点」のこと。すべての投稿・文章がこの声で書かれることで、フォロワーは「Tambunらしさ」を感じる。</div>
+
+      <div class="sec-head">キーワード辞書</div>
+      <p class="sec-sub">積極的に使いたい言葉・概念。これらを自然に文章に織り交ぜる。</p>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px">
+        <span style="background:var(--sage-l);color:var(--forest);padding:5px 14px;border-radius:20px;font-size:13px;font-weight:500">御縁</span>
+        <span style="background:var(--sage-l);color:var(--forest);padding:5px 14px;border-radius:20px;font-size:13px;font-weight:500">タンブン（徳を積む）</span>
+        <span style="background:var(--sage-l);color:var(--forest);padding:5px 14px;border-radius:20px;font-size:13px;font-weight:500">優しい輪が広がる</span>
+        <span style="background:var(--sage-l);color:var(--forest);padding:5px 14px;border-radius:20px;font-size:13px;font-weight:500">感謝</span>
+        <span style="background:var(--sage-l);color:var(--forest);padding:5px 14px;border-radius:20px;font-size:13px;font-weight:500">共感と想像力</span>
+        <span style="background:var(--sage-l);color:var(--forest);padding:5px 14px;border-radius:20px;font-size:13px;font-weight:500">With no borders</span>
+        <span style="background:var(--sage-l);color:var(--forest);padding:5px 14px;border-radius:20px;font-size:13px;font-weight:500">音楽でつながる</span>
+        <span style="background:var(--sage-l);color:var(--forest);padding:5px 14px;border-radius:20px;font-size:13px;font-weight:500">一緒に</span>
+        <span style="background:var(--sage-l);color:var(--forest);padding:5px 14px;border-radius:20px;font-size:13px;font-weight:500">届ける</span>
+        <span style="background:var(--sage-l);color:var(--forest);padding:5px 14px;border-radius:20px;font-size:13px;font-weight:500">Music With No Borders</span>
+      </div>
+
+      <div class="sec-head">OK / NG 表現例</div>
+      <div class="voice-grid">
+        <div class="voice-card ok">
+          <div class="voice-head ok">✓ こんな言葉で書く</div>
+          <div class="voice-ex">「タイの子どもたちと音楽で出会い、笑顔を分かち合いました。」<small>→ 対等な出会いとして描く</small></div>
+          <div class="voice-ex">「善意はあるけど何をすればいいかわからない、そんな方へ。」<small>→ ターゲットに直接語りかける</small></div>
+          <div class="voice-ex">「あなたの支援が、この笑顔につながりました。ありがとうございます。」<small>→ 結果と感謝をセットで伝える</small></div>
+          <div class="voice-ex">「音楽に国境はない、と改めて感じた1日でした。」<small>→ メンバーの率直な気持ちを語る</small></div>
+        </div>
+        <div class="voice-card ng">
+          <div class="voice-head ng">✕ こんな言葉は使わない</div>
+          <div class="voice-ex">「貧困に苦しむ子どもたちを救う」<small>→ 上から目線・かわいそうな文脈はNG</small></div>
+          <div class="voice-ex">「スラム街で奇跡が起きました」<small>→ センセーショナルな表現はNG</small></div>
+          <div class="voice-ex">「あなたの運命が変わる出会い」<small>→ スピリチュアルすぎる表現はNG</small></div>
+          <div class="voice-ex">「今すぐ寄付して命を救おう」<small>→ 圧迫感のある訴求はNG</small></div>
+        </div>
+      </div>
+
+      <div class="sec-head">トーンの設定</div>
+      <table class="rule-table">
+        <tr><th>軸</th><th>Tambun Projectのトーン</th><th>避けるトーン</th></tr>
+        <tr><td>距離感</td><td>友人のように温かく、でも丁寧に</td><td>過度にフォーマルまたは馴れ馴れしすぎ</td></tr>
+        <tr><td>視点</td><td>対等・共に歩む（支援者でなく仲間として）</td><td>上から目線・支援してあげる感覚</td></tr>
+        <tr><td>感情</td><td>喜び・感謝・驚き・発見</td><td>憐れみ・悲しみを強調した感情</td></tr>
+        <tr><td>複雑さ</td><td>わかりやすく、一文一メッセージ</td><td>長すぎる文・難しい言葉の羅列</td></tr>
+        <tr><td>文末</td><td>体言止め or ですます調で統一</td><td>文末が毎回バラバラ</td></tr>
+      </table>
+
+      <div class="sec-head">CTAのパターン集</div>
+      <p class="sec-sub">投稿の最後に使えるCall to Action（行動喚起）フレーズ。コピペして使ってOK。</p>
+      <div class="cta-row"><div class="cta-type">会員向け</div><div class="cta-text">▷ 一緒にタイへ行きませんか？サポーター会員の詳細はプロフィールリンクから。</div></div>
+      <div class="cta-row"><div class="cta-type">寄付向け</div><div class="cta-text">▷ 活動を応援してくださる方はプロフィールのリンクへ。小さな支援が大きな音楽になります。</div></div>
+      <div class="cta-row"><div class="cta-type">認知向け</div><div class="cta-text">▷ 「タンブン」という言葉を知っていますか？プロフィールから活動の詳細をぜひご覧ください。</div></div>
+      <div class="cta-row"><div class="cta-type">共感向け</div><div class="cta-text">▷ タイが好きな方、国際協力に興味ある方、ぜひフォローしてつながりましょう。</div></div>
+      <div class="cta-row"><div class="cta-type">イベント</div><div class="cta-text">▷ コンサートの詳細・お申込みはプロフィールリンクから。ぜひ現地で一緒に音楽を感じてください。</div></div>
+
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- TAB 4: TEMPLATES -->
+    <!-- ══════════════════════════════════════════ -->
+    <div id="sec-template" class="section">
+
+      <!-- Instagram -->
+      <div class="platform-section">
+        <div class="platform-badge" style="background:#8B5E9E">📷 Instagram テンプレート</div>
+
+        <div class="template-note">冒頭の1行が命。スクロール中に止まらせるための「引っかかり」を最初に置く。140字以内が理想。改行を多用してスマホで読みやすく。<strong style="color:var(--ig)">ハッシュタグは最大5個まで（2025年12月変更）。</strong>写真投稿時は<strong style="color:var(--ig)">📸 Photo by [撮影者名（英文表記）]</strong>を必ず明記（詳細は「📷 写真ルール」タブ参照）。</div>
+
+        <div class="template-box">
+          <button class="copy-btn" onclick="copyText(this)">コピー</button>
+          <pre>【ツアー報告・感動シーン】
+
+音楽に、言葉はいらなかった。
+
+バンコクの小学校で演奏した瞬間、
+子どもたちが一斉に立ち上がりました。
+
+国も言葉も違う。
+それでも音楽は、ちゃんと届いた。
+
+これがTambun Projectが信じること——
+Music With No Borders。
+
+↓ 活動の詳細・サポーター会員はプロフリンクから
+
+📸 Photo by [撮影者名（英文表記）] (@account)
+
+#TambunProject #MusicWithNoBorders
+#タイ #国際協力 #musicforkids</pre>
+        </div>
+
+        <div class="template-box">
+          <button class="copy-btn" onclick="copyText(this)">コピー</button>
+          <pre>【メンバー紹介・ストーリー系】
+
+私がタイに来た理由は、たった一つ。
+
+音楽は、誰かの人生を変えられると
+信じているから。
+
+[メンバー名]は〇〇年からTambun Projectに参加。
+現地の子どもたちに[楽器名]を教えています。
+
+「うまくなりたい」じゃなくて
+「楽しい」という顔が見たくて、
+毎年タイに来ています。
+
+📸 Photo by [撮影者名（英文表記）] (@account)
+
+#TambunProject #WithNoBorders #音楽家 #タイ #国際協力</pre>
+        </div>
+
+        <div class="template-box">
+          <button class="copy-btn" onclick="copyText(this)">コピー</button>
+          <pre>【サポーター募集・参加呼びかけ】
+
+「タイが好き」「何か役に立ちたい」
+そんな気持ち、ありませんか？
+
+Tambun Projectは現役の音楽家たちが
+タイの子どもたちに音楽を届けるプロジェクトです。
+
+一緒にツアーに参加したり、
+遠くから応援したり——
+
+あなたのスタイルで、関われます。
+
+▷ サポーター会員の詳細はプロフリンクから
+
+#TambunProject #音楽でつながる
+#サポーター募集 #社会貢献 #NPO</pre>
+        </div>
+      </div>
+
+      <!-- Facebook -->
+      <div class="platform-section">
+        <div class="platform-badge" style="background:#3A6EA5">f Facebook テンプレート</div>
+        <div class="template-note">Facebookは長文OK。活動報告・支援者への感謝・イベント告知に使う。協賛企業や支援者がシェアしやすい「報告書」寄りのトーンで。ハッシュタグ5個制限はInstagram限定なのでFB投稿ではタグ数は柔軟で構わないが、ブランド統一のため5個程度に揃えると美しい。</div>
+
+        <div class="template-box">
+          <button class="copy-btn" onclick="copyText(this)">コピー</button>
+          <pre>【ツアー活動報告】
+
+▋ 2025年 タイ・ラオスツアー報告
+
+今年も無事にツアーを終えることができました。
+ご支援・ご協力いただいた皆様、
+本当にありがとうございました。
+
+─────────────────
+📍 訪問先：バンコク / ビエンチャン
+🎵 演奏：コンサート2公演・ワークショップ3回
+👦 参加人数：子どもたち約〇〇名
+─────────────────
+
+[活動内容の詳細を2〜3段落で記述]
+
+タンブン（徳を積む）という言葉の通り、
+この縁が次の縁につながることを願っています。
+
+引き続きTambun Projectをよろしくお願いします。
+
+▷ 活動詳細・寄付はWebサイトから
+https://tambunproject.com</pre>
+        </div>
+
+        <div class="template-box">
+          <button class="copy-btn" onclick="copyText(this)">コピー</button>
+          <pre>【コンサート・イベント告知】
+
+🎵 Tambun Project タイ/ラオスツアー報告コンサート
+
+4回目のツアーを終えた私たちの「今」を
+音楽と共にお届けします。
+
+────────────────
+📅 日時：〇〇年〇月〇日（〇）〇:〇〇〜
+📍 会場：〇〇ホール（〇〇線〇〇駅 徒歩〇分）
+🎫 入場：〇〇円 / 学生〇〇円
+────────────────
+
+当日は現地の映像もご覧いただけます。
+タイに興味がある方、国際協力に関心がある方、
+音楽が好きな方、ぜひお越しください。
+
+▷ お申込み・詳細はこちら
+[URL]</pre>
+        </div>
+      </div>
+
+      <!-- YouTube -->
+      <div class="platform-section">
+        <div class="platform-badge" style="background:#B04040">▶ YouTube 概要欄テンプレート</div>
+        <div class="template-note">概要欄はSEOにも影響する。キーワード（タンブン・タイ・音楽・国際協力）を自然に含めること。</div>
+
+        <div class="template-box">
+          <button class="copy-btn" onclick="copyText(this)">コピー</button>
+          <pre>【動画タイトル例】
+「音楽が国境を越えた瞬間 | Tambun Project 2025 タイ・ラオスツアー」
+
+【概要欄】
+タイ語で「徳を積む」を意味する「タンブン」。
+
+Tambun Projectは現役の音楽家たちが、
+タイをはじめとする東南アジアの子どもたちに
+音楽を届けるプロジェクトです。
+
+2018年の設立以来、年に1回のツアーを続けています。
+
+─── この動画について ───
+[動画の内容を2〜3文で説明]
+
+─── Tambun Project ───
+🌐 Website: https://tambunproject.com
+📷 Instagram: @tambunproject
+f Facebook: TambunProject
+💌 お問い合わせ: tambunproject2017@gmail.com
+
+▷ サポーター会員・寄付はWebサイトから
+
+#TambunProject #MusicWithNoBorders
+#タイ #国際協力 #音楽</pre>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- TAB 5: HASHTAGS -->
+    <!-- ══════════════════════════════════════════ -->
+    <div id="sec-hashtag" class="section">
+
+      <div class="sec-head">ハッシュタグ戦略</div>
+      <div class="warn-box"><strong>⚠️ 2025年12月 Instagram仕様変更：ハッシュタグは最大5個まで</strong><br>6個以上入れるとエラー表示または無効化される。汎用的なタグ（#instagood 等）の多用は逆効果でパフォーマンスが下がる。<strong>数より「関連性」と「役割設計」</strong>が重要。</div>
+      <div class="info-box">5枠を「ブランドコア1＋サブブランド1＋内容別3」に役割分担する。全投稿で必ず1枠目に #TambunProject を入れ、残り4枠を投稿内容に応じて選ぶ。Facebook・YouTubeは従来通り5個以上も可能だが、ブランドの統一感のため5個に揃えることを推奨。</div>
+
+      <div class="hashtag-group">
+        <div class="hashtag-label">🔒 枠①ブランドコア（毎回必ず1つ）</div>
+        <div class="hashtag-wrap">
+          <span class="hashtag">#TambunProject</span>
+        </div>
+      </div>
+
+      <div class="hashtag-group">
+        <div class="hashtag-label">🎨 枠②サブブランド（毎回1つ選ぶ）</div>
+        <div class="hashtag-wrap">
+          <span class="hashtag">#タンブンプロジェクト</span>
+          <span class="hashtag">#MusicWithNoBorders</span>
+          <span class="hashtag">#WithNoBorders</span>
+          <span class="hashtag">#音楽でつながる</span>
+        </div>
+      </div>
+
+      <div class="hashtag-group">
+        <div class="hashtag-label" style="color:var(--gray-m);text-transform:none;font-weight:400;font-style:italic">— 以下は枠③〜⑤（内容別に3つ選ぶ）のタグ群 —</div>
+      </div>
+
+      <div class="hashtag-group">
+        <div class="hashtag-label">🎵 音楽・アート系</div>
+        <div class="hashtag-wrap">
+          <span class="hashtag">#音楽</span>
+          <span class="hashtag">#クラシック音楽</span>
+          <span class="hashtag">#コンサート</span>
+          <span class="hashtag">#ピアノ</span>
+          <span class="hashtag">#バイオリン</span>
+          <span class="hashtag">#ワークショップ</span>
+          <span class="hashtag">#音楽教育</span>
+          <span class="hashtag">#アート</span>
+          <span class="hashtag ig">#music</span>
+          <span class="hashtag ig">#classicalmusic</span>
+          <span class="hashtag ig">#concert</span>
+        </div>
+      </div>
+
+      <div class="hashtag-group">
+        <div class="hashtag-label">🌏 タイ・旅行系</div>
+        <div class="hashtag-wrap">
+          <span class="hashtag">#タイ</span>
+          <span class="hashtag">#タイ旅行</span>
+          <span class="hashtag">#バンコク</span>
+          <span class="hashtag">#ラオス</span>
+          <span class="hashtag">#東南アジア</span>
+          <span class="hashtag">#タイ好きな人と繋がりたい</span>
+          <span class="hashtag ig">#thailand</span>
+          <span class="hashtag ig">#bangkok</span>
+          <span class="hashtag ig">#laos</span>
+          <span class="hashtag ig">#southeastasia</span>
+        </div>
+      </div>
+
+      <div class="hashtag-group">
+        <div class="hashtag-label">❤️ 社会貢献・NPO系</div>
+        <div class="hashtag-wrap">
+          <span class="hashtag">#国際協力</span>
+          <span class="hashtag">#社会貢献</span>
+          <span class="hashtag">#NPO</span>
+          <span class="hashtag">#ボランティア</span>
+          <span class="hashtag">#寄付</span>
+          <span class="hashtag">#一般社団法人</span>
+          <span class="hashtag">#サポーター募集</span>
+          <span class="hashtag ig">#ngo</span>
+          <span class="hashtag ig">#volunteer</span>
+          <span class="hashtag ig">#socialimpact</span>
+          <span class="hashtag ig">#musicforeducation</span>
+        </div>
+      </div>
+
+      <div class="hashtag-group">
+        <div class="hashtag-label">👶 子ども・教育系</div>
+        <div class="hashtag-wrap">
+          <span class="hashtag">#子ども</span>
+          <span class="hashtag">#音楽教育</span>
+          <span class="hashtag">#教育支援</span>
+          <span class="hashtag ig">#children</span>
+          <span class="hashtag ig">#education</span>
+          <span class="hashtag ig">#musicforkids</span>
+        </div>
+      </div>
+
+      <div class="hashtag-group">
+        <div class="hashtag-label">📸 投稿コンテンツ別（状況に応じて選ぶ）</div>
+        <div class="hashtag-wrap">
+          <span class="hashtag">#コンサートレポート</span>
+          <span class="hashtag">#ツアーレポート</span>
+          <span class="hashtag">#活動報告</span>
+          <span class="hashtag">#舞台裏</span>
+          <span class="hashtag">#リハーサル</span>
+          <span class="hashtag">#海外生活</span>
+          <span class="hashtag">#音楽家</span>
+          <span class="hashtag">#プロジェクト</span>
+        </div>
+      </div>
+
+      <div class="sec-head">投稿パターン別・推奨タグセット（5個構成）</div>
+      <p class="sec-sub">各セットが「ブランドコア1＋サブブランド1＋内容別3」の5枠構成になっている。そのままコピペ可。</p>
+      <table class="rule-table">
+        <tr><th>投稿タイプ</th><th>使うタグ（コピペ用）</th></tr>
+        <tr><td>ツアー報告（現地）</td><td style="font-size:11px;font-family:monospace">#TambunProject #MusicWithNoBorders #タイ #国際協力 #musicforkids</td></tr>
+        <tr><td>ラオスツアー報告</td><td style="font-size:11px;font-family:monospace">#TambunProject #MusicWithNoBorders #ラオス #国際協力 #ビエンチャン</td></tr>
+        <tr><td>コンサート告知（日本）</td><td style="font-size:11px;font-family:monospace">#TambunProject #音楽でつながる #コンサート #クラシック音楽 #チャリティーコンサート</td></tr>
+        <tr><td>日常・メンバー紹介</td><td style="font-size:11px;font-family:monospace">#TambunProject #WithNoBorders #音楽家 #舞台裏 #musician</td></tr>
+        <tr><td>サポーター募集</td><td style="font-size:11px;font-family:monospace">#TambunProject #音楽でつながる #サポーター募集 #社会貢献 #NPO</td></tr>
+        <tr><td>寄付・協賛依頼</td><td style="font-size:11px;font-family:monospace">#TambunProject #タンブンプロジェクト #国際協力 #寄付 #socialimpact</td></tr>
+      </table>
+
+      <div class="warn-box"><strong>❌ 使ってはいけないタグ</strong><br>
+        #instagood / #f4f / #like4like / #follow4follow / #explore / #reels など<strong>汎用的で無関係なタグ</strong>はInstagram公式が「パフォーマンスを下げる可能性あり」と明言。投稿内容に直結しないタグは1つも入れない。
+      </div>
+
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- TAB 6: PARTNERS (コラボパートナー) -->
+    <!-- ══════════════════════════════════════════ -->
+    <div id="sec-partner" class="section">
+
+      <div class="sec-head">コラボの基本ポリシー</div>
+
+      <div class="info-box">
+        Tambunのコラボ姿勢：「<strong>支援する／される</strong>」の上下関係ではなく、「<strong>一緒に活動する仲間</strong>」として扱う。投稿で言及する際は必ずタグ付け／URL明記してリスペクトを示す。
+      </div>
+
+      <div class="voice-grid" style="margin-top:14px">
+        <div class="voice-card ng">
+          <div class="voice-head ng">❌ NG表現</div>
+          <div class="voice-ex">〇〇に協力していただいた<small>一方的に上下を作る表現</small></div>
+          <div class="voice-ex">現地の団体<small>具体名を出さずぼかすのは失礼</small></div>
+        </div>
+        <div class="voice-card ok">
+          <div class="voice-head ok">✅ OK表現</div>
+          <div class="voice-ex">〇〇の皆さんとご一緒に<small>対等な関係を示す</small></div>
+          <div class="voice-ex">〇〇とのコラボレーション<small>具体名＋協働を明示</small></div>
+        </div>
+      </div>
+
+      <!-- ─── タイのパートナー ─── -->
+      <div class="partner-region-head">
+        <span class="partner-region-flag">🇹🇭</span>
+        <span class="partner-region-title">タイのパートナー</span>
+        <span class="partner-region-count">6団体</span>
+      </div>
+
+      <div class="partner-card thai">
+        <div class="partner-name">イマヌエル・ミュージック・オーケストラ</div>
+        <div class="partner-name-en">Immanuel Music Orchestra（Music for Life Foundation）</div>
+        <span class="partner-role">共演パートナー</span>
+        <dl class="partner-meta">
+          <dt>所在地</dt><dd>バンコク（スラム街にあるインマニュエル教会）</dd>
+          <dt>主な共演</dt><dd>2018年初共演／2019年バンコク2ndツアー／2023年来日公演／2024年バンコク公演</dd>
+          <dt>キーパーソン</dt><dd>指揮者：Dr. Krit Niramittham／ヴァイオリニスト：トンさん ※要確認</dd>
+          <dt>表記</dt><dd>「イマヌエル・ミュージック・オーケストラ」または「Immanuel Music Orchestra」</dd>
+        </dl>
+        <div class="partner-relation">
+          <strong>Tambunとの関わり：</strong>スラム街の子どもたちで結成されたオーケストラ。Tambunにとって最も古く深いパートナーで、長年共演を重ねる盟友関係。
+        </div>
+      </div>
+
+      <div class="partner-card thai">
+        <div class="partner-name">シーカー・アジア財団</div>
+        <div class="partner-name-en">Sikkha Asia Foundation</div>
+        <span class="partner-role">教育支援パートナー</span>
+        <dl class="partner-meta">
+          <dt>URL</dt><dd><a href="https://sikkha.or.th/jp" target="_blank">sikkha.or.th/jp</a></dd>
+          <dt>所在地</dt><dd>バンコク・スラム地区</dd>
+          <dt>活動</dt><dd>貧困層の中高生・大学生への奨学金支給、図書館運営（年間約440名支援）</dd>
+          <dt>キーパーソン</dt><dd>八木沢さん ※要確認</dd>
+          <dt>表記</dt><dd>「シーカー・アジア財団」</dd>
+        </dl>
+        <div class="partner-relation">
+          <strong>Tambunとの関わり：</strong>2018年初ツアーで奨学金授与式に演奏で参加。スラム地区の子どもたちへ文房具・寄付金を届けた。
+        </div>
+      </div>
+
+      <div class="partner-card thai">
+        <div class="partner-name">Salon hors du Temps ／ Heart For You財団</div>
+        <div class="partner-name-en">サロン・オ・デュタン</div>
+        <span class="partner-role">共催パートナー</span>
+        <dl class="partner-meta">
+          <dt>所在地</dt><dd>バンコク</dd>
+          <dt>主な共催</dt><dd>2018年初コンサート／2024年7月「Music With No Borders」コンサート</dd>
+          <dt>キーパーソン</dt><dd>加古川成子さん（タイ在住）</dd>
+          <dt>表記</dt><dd>「Salon hors du Temps」「Heart For You財団」</dd>
+        </dl>
+        <div class="partner-relation">
+          <strong>Tambunとの関わり：</strong>創業時からの強力な現地パートナー。タイへの寄付活動の財団も設立。
+        </div>
+      </div>
+
+      <div class="partner-card thai">
+        <div class="partner-name">泰日協会学校（バンコク日本人学校）</div>
+        <div class="partner-name-en">Thai-Japanese Association School (TJAS)</div>
+        <span class="partner-role">学校公演パートナー</span>
+        <dl class="partner-meta">
+          <dt>所在地</dt><dd>バンコク</dd>
+          <dt>主な実績</dt><dd>2018年・2019年など、約1,000人の児童生徒を前にコンサート＆音楽鑑賞会／合唱コンクール特別審査員</dd>
+          <dt>表記</dt><dd>「泰日協会学校（バンコク日本人学校）」 ※2回目以降は「バンコク日本人学校」可</dd>
+        </dl>
+        <div class="partner-relation">
+          <strong>Tambunとの関わり：</strong>宮野寛子さんの母校。テーマ曲「Garden」を生徒と大合唱した思い出深い場所。
+        </div>
+      </div>
+
+      <div class="partner-card thai">
+        <div class="partner-name">Siam Ratchada Auditorium</div>
+        <div class="partner-name-en">YAMAHA バンコク</div>
+        <span class="partner-role">会場協力パートナー</span>
+        <dl class="partner-meta">
+          <dt>所在地</dt><dd>バンコク・フォーチュンタウン地下1階 YAMAHA内</dd>
+          <dt>主な実績</dt><dd>2024年7月「Music With No Borders」コンサート開催</dd>
+          <dt>表記</dt><dd>「Siam Ratchada Auditorium」</dd>
+        </dl>
+      </div>
+
+      <div class="partner-card thai">
+        <div class="partner-name">在タイ日本国大使館</div>
+        <div class="partner-name-en">Embassy of Japan in Thailand</div>
+        <span class="partner-role" style="background:#e6eef6;color:var(--fb)">公的機関パートナー</span>
+        <dl class="partner-meta">
+          <dt>URL</dt><dd><a href="https://www.th.emb-japan.go.jp/" target="_blank">www.th.emb-japan.go.jp</a></dd>
+          <dt>所在地</dt><dd>177 Witthayu Road, Lumphini, Pathum Wan, Bangkok 10330（バンコク都パトゥムワン区ウィッタユ通り）</dd>
+          <dt>電話</dt><dd>+66-2-696-3000 / 207-8500</dd>
+          <dt>表記</dt><dd>「在タイ日本国大使館」（略称「在タイ日本大使館」可）</dd>
+        </dl>
+        <div class="partner-relation">
+          <strong>Tambunとの関わり：</strong>※具体的な連携実績は要確認（後援・協力・イベント連携など、表記方法もあわせて代表メンバーに最終確認してください）。
+        </div>
+      </div>
+
+      <!-- ─── 日本のパートナー ─── -->
+      <div class="partner-region-head">
+        <span class="partner-region-flag">🇯🇵</span>
+        <span class="partner-region-title">日本のパートナー</span>
+        <span class="partner-region-count">1団体</span>
+      </div>
+
+      <div class="partner-card" style="border-left:4px solid #BE0027">
+        <div class="partner-name">在東京タイ王国大使館</div>
+        <div class="partner-name-en">Royal Thai Embassy, Tokyo</div>
+        <span class="partner-role" style="background:#e6eef6;color:var(--fb)">公的機関パートナー</span>
+        <dl class="partner-meta">
+          <dt>URL</dt><dd><a href="https://site.thaiembassy.jp/jp/" target="_blank">site.thaiembassy.jp/jp</a></dd>
+          <dt>所在地</dt><dd>〒141-0021 東京都品川区上大崎3-14-6（JR目黒駅徒歩8分）</dd>
+          <dt>電話</dt><dd>03-5789-2433</dd>
+          <dt>Instagram</dt><dd><a href="https://www.instagram.com/gotothailand.jp/" target="_blank">@gotothailand.jp</a></dd>
+          <dt>表記</dt><dd>「在東京タイ王国大使館」（略称「駐日タイ王国大使館」可）</dd>
+        </dl>
+        <div class="partner-relation">
+          <strong>Tambunとの関わり：</strong>※具体的な連携実績は要確認（後援・タイフェスティバル等のイベント連携、表記方法もあわせて代表メンバーに最終確認してください）。
+        </div>
+      </div>
+
+      <!-- ─── ラオスのパートナー ─── -->
+      <div class="partner-region-head">
+        <span class="partner-region-flag">🇱🇦</span>
+        <span class="partner-region-title">ラオスのパートナー</span>
+        <span class="partner-region-count">1団体</span>
+      </div>
+
+      <div class="partner-card laos">
+        <div class="partner-name">日本ラオス子どもの未来</div>
+        <div class="partner-name-en">特定非営利活動法人 日本ラオス子どもの未来</div>
+        <span class="partner-role">ラオスツアー現地コーディネートパートナー</span>
+        <dl class="partner-meta">
+          <dt>関係開始</dt><dd>2025年（4回目ツアーでラオス展開時）</dd>
+          <dt>主な実績</dt><dd>2025年ラオス訪問時に協働／2025年11月の報告コンサートにゲスト出演</dd>
+          <dt>表記</dt><dd>「日本ラオス子どもの未来」</dd>
+        </dl>
+        <div class="partner-relation">
+          <strong>Tambunとの関わり：</strong>2025年に始まったラオス展開の重要パートナー。報告会にも登壇いただく深い関係。
+        </div>
+      </div>
+
+      <!-- ─── 投稿時のルール ─── -->
+      <div class="sec-head">投稿時のメンション・タグ付けルール</div>
+
+      <table class="rule-table">
+        <tr><th style="width:30%">シーン</th><th>必須対応</th></tr>
+        <tr><td>共演投稿</td><td>共演パートナーの公式SNSアカウントを必ずメンション</td></tr>
+        <tr><td>会場使用報告</td><td>会場名と協力先を投稿内に明記</td></tr>
+        <tr><td>寄付・支援報告</td><td>支援先団体名と公式URLを記載</td></tr>
+        <tr><td>共催イベント</td><td>パートナー側の投稿タイミングを尊重し、先行投稿しない</td></tr>
+      </table>
+
+      <div class="warn-box">
+        <strong>⚠️ 個人情報・肖像権の注意</strong><br>
+        ・<strong>個人名は本人の許諾を取ってから記載</strong>（特に支援対象の子ども・利用者）<br>
+        ・<strong>写真に写る方の顔出し許諾</strong>を撮影時に必ず確認<br>
+        ・キーパーソン（パートナー団体の代表者等）の名前を出す前に、相手側に確認する
+      </div>
+
+      <!-- ─── 投稿例 ─── -->
+      <div class="sec-head">投稿例（正しい書き方）</div>
+
+      <div class="voice-grid">
+        <div class="voice-card ng">
+          <div class="voice-head ng">❌ NG例</div>
+          <div class="voice-ex">現地の団体と協力してコンサートを開催しました。<small>団体名がぼかされていて失礼／検索でも辿れない</small></div>
+        </div>
+        <div class="voice-card ok">
+          <div class="voice-head ok">✅ OK例</div>
+          <div class="voice-ex">「Music With No Borders」コンサート、無事終了！共催のSalon hors du Temps、Heart For You財団の皆さま、そしてイマヌエル・ミュージック・オーケストラの素晴らしい演奏に感謝です🎻<small>固有名詞を正確に、感謝を具体的に</small></div>
+        </div>
+      </div>
+
+      <!-- ─── 表記ゆれ早見表 ─── -->
+      <div class="sec-head">固有名詞・表記ゆれ早見表</div>
+      <p class="sec-sub">投稿時は必ず右側の正式表記を使用。コピペ用。</p>
+
+      <table class="rule-table">
+        <tr><th style="width:40%">揺れがちな表記</th><th>✅ 正式表記</th></tr>
+        <tr><td>インマヌエル／イマヌエル</td><td><strong>イマヌエル・ミュージック・オーケストラ</strong></td></tr>
+        <tr><td>シーカ／シッカ／シーカ財団</td><td><strong>シーカー・アジア財団</strong></td></tr>
+        <tr><td>サロン・オ・デュタン／オー・デュ・タン</td><td><strong>Salon hors du Temps</strong></td></tr>
+        <tr><td>ハートフォーユー／HFY</td><td><strong>Heart For You財団</strong></td></tr>
+        <tr><td>泰国日本人学校／日本人学校／泰日学校</td><td><strong>泰日協会学校（バンコク日本人学校）</strong></td></tr>
+        <tr><td>バンコク／バンコック</td><td><strong>バンコク</strong></td></tr>
+        <tr><td>ヴィエンチャン／ビエンチャン</td><td><strong>ビエンチャン</strong></td></tr>
+        <tr><td>ラオス子供の未来／ラオスこどもの未来</td><td><strong>日本ラオス子どもの未来</strong></td></tr>
+        <tr><td>日本大使館／日本国大使館</td><td><strong>在タイ日本国大使館</strong>（略：在タイ日本大使館）</td></tr>
+        <tr><td>タイ大使館／駐日タイ大使館</td><td><strong>在東京タイ王国大使館</strong>（略：駐日タイ王国大使館）</td></tr>
+      </table>
+
+    </div>
+    <div id="sec-benchmark" class="section">
+
+      <div style="background:var(--amber-l);border:1px dashed var(--amber);border-radius:10px;padding:14px 18px;margin:24px 0 28px;font-size:12.5px;color:var(--gray-d);line-height:1.75">
+        <strong style="color:var(--amber);font-size:13px">📎 このタブは参考資料です</strong><br>
+        本セクションは事前ヒヤリングで挙がった5つの参考ブランドを因数分解した<strong>pre-stage資料</strong>です。Tambunのガイドラインにまだ統合されていません。MTGで議論した上で、どの要素を取り入れるか／取り入れないかを決定してから本編（デザイン・ボイス等のタブ）に反映します。
+      </div>
+
+      <div class="sec-head">参考5ブランドのポジショニング比較</div>
+      <p class="sec-sub">事前ヒヤリングで「Tambunっぽい」と挙がった5ブランドを、活動軸・対象・ミッションで整理。</p>
+
+      <table class="rule-table">
+        <tr><th style="width:22%">ブランド</th><th style="width:18%">対象</th><th style="width:15%">立地</th><th>ミッション</th></tr>
+        <tr>
+          <td><strong>Support for<br>Woman's Happiness</strong></td>
+          <td>困難を抱える女性（障がい・人身売買・HIV等）</td>
+          <td>ラオス中心</td>
+          <td>自分の足で歩める「自分らしい幸せ」</td>
+        </tr>
+        <tr>
+          <td><strong>エル・システマ</strong></td>
+          <td>貧困地域の子ども</td>
+          <td>ベネズエラ発<br>→70+カ国</td>
+          <td>音楽で生きる力と希望を育む</td>
+        </tr>
+        <tr>
+          <td><strong>ヘラルボニー</strong></td>
+          <td>知的障害のある作家</td>
+          <td>岩手発<br>→グローバル</td>
+          <td>「異彩を、放て。」</td>
+        </tr>
+        <tr>
+          <td><strong>マザーハウス</strong></td>
+          <td>途上国の職人・素材</td>
+          <td>バングラ等6カ国</td>
+          <td>途上国から世界に通用するブランドをつくる</td>
+        </tr>
+        <tr>
+          <td><strong>NPO CLOUDY</strong></td>
+          <td>アフリカの女性・子ども</td>
+          <td>ガーナ・ケニア</td>
+          <td>機会と選択肢がある未来へ</td>
+        </tr>
+      </table>
+
+      <div class="sec-head">因数分解：「Tambunっぽい」を生む5つの共通DNA</div>
+
+      <!-- DNA 1 -->
+      <div style="background:var(--cream);border-left:4px solid var(--sage);border-radius:0 10px 10px 0;padding:16px 20px;margin-bottom:16px">
+        <div style="font-size:11px;color:var(--sage);font-weight:700;margin-bottom:6px;letter-spacing:.08em">DNA ① — POLICY</div>
+        <div style="font-family:Georgia,serif;font-size:17px;font-weight:700;color:var(--forest);margin-bottom:10px">「支援→対等・循環」への転換</div>
+        <div style="font-size:12.5px;color:var(--gray-d);line-height:1.8">
+          全5ブランドが「支援する／される」の上下関係を明確に否定。<br>
+          ・<strong>ヘラルボニー</strong>：作家を「対等なビジネスパートナー」として位置付け<br>
+          ・<strong>マザーハウス</strong>：お客様「のために」ではなく「ともに」<br>
+          ・<strong>CLOUDY</strong>：営利×非営利の「循環型ビジネス」で依存関係を断つ<br>
+          ・<strong>エル・システマ</strong>：教わった子が上級生になって下の世代に教える相互循環<br>
+          ・<strong>SWH</strong>：障がい当事者と「一緒に」作業所を立ち上げ
+        </div>
+        <div style="margin-top:12px;padding-top:10px;border-top:0.5px dashed var(--gray-b);font-size:11.5px;color:var(--forest);font-weight:600">
+          →  Tambunの「恩返し」「一緒にタイへ」「サポーター会員=仲間」と完全一致
+        </div>
+      </div>
+
+      <!-- DNA 2 -->
+      <div style="background:var(--cream);border-left:4px solid var(--rose);border-radius:0 10px 10px 0;padding:16px 20px;margin-bottom:16px">
+        <div style="font-size:11px;color:var(--rose);font-weight:700;margin-bottom:6px;letter-spacing:.08em">DNA ② — POLICY</div>
+        <div style="font-family:Georgia,serif;font-size:17px;font-weight:700;color:var(--forest);margin-bottom:10px">「かわいそう」の全面禁止</div>
+        <div style="font-size:12.5px;color:var(--gray-d);line-height:1.8">
+          <strong style="color:var(--rose)">最も強いTambunぽさの源泉。</strong><br>
+          ・<strong>マザーハウス</strong>：途上国のイメージを「貧困」から「技術と可能性」へ書き換え<br>
+          ・<strong>ヘラルボニー</strong>：知的障害を「庇護対象」ではなく「異彩＝独自の才能」として再定義<br>
+          ・<strong>CLOUDY</strong>：貧困・社会課題を前面に出さない店舗設計（※データ：貧困押し出し店舗は約80%の人が入店しない）<br>
+          ・<strong>エル・システマ</strong>：「貧しい子を救う」ではなく「どこで生まれたかではなく何と出会うか」<br>
+          ・<strong>SWH</strong>：「被害者」ではなく「自分らしく活き活きと」
+        </div>
+        <div style="margin-top:12px;padding-top:10px;border-top:0.5px dashed var(--gray-b);font-size:11.5px;color:var(--forest);font-weight:600">
+          →  Tambunの「スラム街の奇跡・可哀想な子どもはNG」と完全一致
+        </div>
+      </div>
+
+      <!-- DNA 3 -->
+      <div style="background:var(--cream);border-left:4px solid var(--amber);border-radius:0 10px 10px 0;padding:16px 20px;margin-bottom:16px">
+        <div style="font-size:11px;color:var(--amber);font-weight:700;margin-bottom:6px;letter-spacing:.08em">DNA ③ — POLICY</div>
+        <div style="font-family:Georgia,serif;font-size:17px;font-weight:700;color:var(--forest);margin-bottom:10px">その土地の「文化・素材・人」への敬意</div>
+        <div style="font-size:12.5px;color:var(--gray-d);line-height:1.8">
+          全ブランドが、活動先の文化を「遅れている」ではなく「固有の価値」として扱う。<br>
+          ・<strong>マザーハウス</strong>：バングラのジュート、ネパールのカシミヤ、インドネシアのフィリグリー<br>
+          ・<strong>CLOUDY</strong>：アフリカン・ファブリック、伝統の手編み<br>
+          ・<strong>ヘラルボニー</strong>：作家固有の筆致・世界観<br>
+          ・<strong>エル・システマ</strong>：ベネズエラ発→現地適応型で世界展開<br>
+          ・<strong>SWH</strong>：ラオスの少数民族女性のものづくり
+        </div>
+        <div style="margin-top:12px;padding-top:10px;border-top:0.5px dashed var(--gray-b);font-size:11.5px;color:var(--forest);font-weight:600">
+          →  Tambunの「タイへの恩返し」「御縁」「タンブン（現地語の概念）を大切にする姿勢」と一致
+        </div>
+      </div>
+
+      <!-- DNA 4 -->
+      <div style="background:var(--cream);border-left:4px solid var(--forest);border-radius:0 10px 10px 0;padding:16px 20px;margin-bottom:16px">
+        <div style="font-size:11px;color:var(--forest);font-weight:700;margin-bottom:6px;letter-spacing:.08em">DNA ④ — DESIGN</div>
+        <div style="font-family:Georgia,serif;font-size:17px;font-weight:700;color:var(--forest);margin-bottom:10px">トーンの二系統：上品抑制型 ／ 鮮やか統制型</div>
+        <div style="font-size:12.5px;color:var(--gray-d);line-height:1.8">
+          デザインは大きく2パターンに分かれる。Tambunがどちらを選ぶかで世界観が決まる。
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px">
+          <div style="background:var(--warm-wh);border:0.5px solid var(--gray-b);border-radius:8px;padding:12px 14px">
+            <div style="font-size:12px;font-weight:700;color:var(--forest);margin-bottom:6px">ヘラルボニー型（上品抑制）</div>
+            <div style="font-size:11.5px;color:var(--gray-d);line-height:1.7">
+              水彩的・深い色・セリフ体・余白重視。<br>
+              「堂々として本物」(水野学氏)。<br>
+              福祉=チャリティ感を排除し、アート的に美しく。
+            </div>
+          </div>
+          <div style="background:var(--warm-wh);border:0.5px solid var(--gray-b);border-radius:8px;padding:12px 14px">
+            <div style="font-size:12px;font-weight:700;color:var(--amber);margin-bottom:6px">CLOUDY型（鮮やか統制）</div>
+            <div style="font-size:11.5px;color:var(--gray-d);line-height:1.7">
+              アフリカ的な鮮烈さを<strong>1色（イエロー）で統制</strong>。<br>
+              鮮やかだが散漫にならない規律。<br>
+              タイの色彩豊かさを活かすならこちらも選択肢。
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:12px;padding-top:10px;border-top:0.5px dashed var(--gray-b);font-size:11.5px;color:var(--forest);font-weight:600">
+          →  現行Tambunガイドライン（Forest Green中心＋彩度控えめ）はヘラルボニー型
+        </div>
+      </div>
+
+      <!-- DNA 5 -->
+      <div style="background:var(--cream);border-left:4px solid var(--sage);border-radius:0 10px 10px 0;padding:16px 20px;margin-bottom:16px">
+        <div style="font-size:11px;color:var(--sage);font-weight:700;margin-bottom:6px;letter-spacing:.08em">DNA ⑤ — STORYTELLING</div>
+        <div style="font-family:Georgia,serif;font-size:17px;font-weight:700;color:var(--forest);margin-bottom:10px">「個人の原点」を語り続ける</div>
+        <div style="font-size:12.5px;color:var(--gray-d);line-height:1.8">
+          全ブランドが、創業者/当事者の<strong>原点ストーリー</strong>を繰り返し発信。<br>
+          ・<strong>マザーハウス</strong>：山口絵理子のバングラ単身渡航<br>
+          ・<strong>CLOUDY</strong>：銅冶勇人のケニアスラム体験<br>
+          ・<strong>ヘラルボニー</strong>：創業者の兄が書いた謎の言葉「ヘラルボニー」<br>
+          ・<strong>エル・システマ</strong>：アブレウ博士の「銃の代わりに楽器を」<br>
+          ・<strong>SWH</strong>：「障がいがあっても最低賃金をもらえる作業所を一緒に作って」という現地からのオファー
+        </div>
+        <div style="margin-top:12px;padding-top:10px;border-top:0.5px dashed var(--gray-b);font-size:11.5px;color:var(--forest);font-weight:600">
+          →  Tambunの原点（幼少期のタイ体験、新妻さんとのSNSでの出会い）を投稿シリーズとして繰り返し使うべき
+        </div>
+      </div>
+
+      <div class="sec-head">Tambunにとっての戦略的インプリケーション</div>
+
+      <div class="sec-head" style="font-size:14px;border:none;margin-top:4px;margin-bottom:10px;color:var(--gray-m)">取り入れるべき3つの視点</div>
+
+      <table class="rule-table">
+        <tr><th style="width:30%">参考</th><th>Tambunへの応用</th></tr>
+        <tr>
+          <td><strong>ヘラルボニー流</strong><br>「本物さ」の美学</td>
+          <td>既に現行ガイドラインに反映済み。<br>徹底継続すべし。</td>
+        </tr>
+        <tr>
+          <td><strong>マザーハウス流</strong><br>「ツアー参加型」の深いファンづくり</td>
+          <td>サポーター会員への<strong>現地ツアー参加権</strong>を特典に組み込む。<br>会員獲得の強力フックになる。</td>
+        </tr>
+        <tr>
+          <td><strong>CLOUDY流</strong><br>「購入=アクション」の透明化</td>
+          <td>「このチケット1枚 = 子ども◯人の音楽体験」のような<strong>可視化UI</strong>を導入。<br>支援のアクションを見える化する。</td>
+        </tr>
+      </table>
+
+      <div class="warn-box"><strong>⚠️ 真似してはいけない罠</strong><br>
+        ・<strong>ヘラルボニーは既に「福祉枠」を脱した</strong>規模感。Tambunは現段階では"アート文脈"より"音楽×国際協力"の王道でいく方が現実的。<br>
+        ・<strong>エル・システマは国家事業規模</strong>。理念は学ぶが、規模感で比較しない。
+      </div>
+
+      <div class="sec-head">MTGで議論したい問い</div>
+
+      <div style="background:var(--sage-l);border-radius:10px;padding:16px 20px;margin-bottom:12px">
+        <div style="font-size:13px;font-weight:700;color:var(--forest);margin-bottom:8px">問い ①</div>
+        <div style="font-size:12.5px;color:var(--gray-d);line-height:1.75">
+          5ブランドの中で、<strong>最も「近づきたい」のはどれか？</strong><br>
+          → ビジュアル=ヘラルボニー／事業モデル=CLOUDY／活動モデル=エル・システマ、と軸を分けて議論する
+        </div>
+      </div>
+
+      <div style="background:var(--sage-l);border-radius:10px;padding:16px 20px;margin-bottom:12px">
+        <div style="font-size:13px;font-weight:700;color:var(--forest);margin-bottom:8px">問い ②</div>
+        <div style="font-size:12.5px;color:var(--gray-d);line-height:1.75">
+          「<strong>かわいそうを使わない</strong>」を、どこまで徹底できるか？<br>
+          → 現公式HPには「貧困層の子どもたち」「スラムの子どもたち」の表現あり。ガイドラインとの矛盾をどう解消するか
+        </div>
+      </div>
+
+      <div style="background:var(--sage-l);border-radius:10px;padding:16px 20px;margin-bottom:12px">
+        <div style="font-size:13px;font-weight:700;color:var(--forest);margin-bottom:8px">問い ③</div>
+        <div style="font-size:12.5px;color:var(--gray-d);line-height:1.75">
+          <strong>原点ストーリーをコンテンツシリーズとして再利用できないか？</strong><br>
+          → 「#Tambunの原点」シリーズ投稿として、月1本ペースで発信する案
+        </div>
+      </div>
+
+      <div style="margin-top:28px;padding:14px 18px;background:var(--amber-l);border:1px dashed var(--amber);border-radius:10px;font-size:11.5px;color:var(--gray-m);line-height:1.75">
+        <strong style="color:var(--amber)">📌 次のステップ</strong><br>
+        このタブの内容をMTGで議論し、「取り入れる／取り入れない／継続検討」を決定。取り入れると決まった要素は、本ガイドラインの該当タブ（デザイン・ボイス・写真ルール・投稿テンプレ）へ反映していく。
+      </div>
+
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- TAB 8: SCHEDULE -->
+    <!-- ══════════════════════════════════════════ -->
+    <div id="sec-schedule" class="section">
+
+      <div class="sec-head">2026年 活動スケジュール</div>
+      <p class="sec-sub">SNS投稿計画・法人化・イベントの全体像。投稿頻度の増減タイミングを把握するために使う。</p>
+
+      <div class="info-box" style="background:var(--sage-ll);border-left:3px solid var(--sage);padding:12px 16px;border-radius:8px;font-size:12.5px;line-height:1.75;margin-bottom:24px">
+        <strong style="color:var(--forest)">📌 このタブの使い方</strong><br>
+        イベント前後は投稿頻度を上げる。特に<strong>8月タイツアー期間</strong>はリアルタイム投稿を想定した圧縮レビュー体制（当日確認）に切り替える。Googleカレンダー連携は後日追加予定。
+      </div>
+
+      <!-- Timeline table -->
+      <table class="rule-table" style="width:100%">
+        <colgroup>
+          <col style="width:18%">
+          <col style="width:14%">
+          <col style="width:38%">
+          <col style="width:30%">
+        </colgroup>
+        <tr>
+          <th>時期</th>
+          <th>区分</th>
+          <th>イベント・施策</th>
+          <th>SNS対応</th>
+        </tr>
+        <tr>
+          <td><strong>6月6日（土）</strong></td>
+          <td><span style="background:var(--sage-l);color:var(--forest);font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px">ライブ</span></td>
+          <td>
+            <strong>渋谷松濤 壮行コンサート</strong><br>
+            <span style="font-size:11.5px;color:var(--gray-m)">タイツアーに向けた壮行コンサート。Ricco.（リコちゃん）グッズ販売開始。</span>
+          </td>
+          <td style="font-size:12px;color:var(--gray-d)">
+            告知①：5月下旬〜6月初旬<br>
+            告知②：6月3〜4日<br>
+            当日：リアルタイム or 予約投稿<br>
+            報告：6月7〜10日
+          </td>
+        </tr>
+        <tr>
+          <td><strong>7月1日（水）</strong></td>
+          <td><span style="background:var(--sage-l);color:var(--forest);font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px">法人化</span></td>
+          <td>
+            <strong>一般社団法人タンブンプロジェクト 登記</strong><br>
+            <span style="font-size:11.5px;color:var(--gray-m)">税理士・司法書士による書類確認完了済み。3名（Yukako・Hiroko・山形）で書類・ハンコを揃える。</span>
+          </td>
+          <td style="font-size:12px;color:var(--gray-d)">
+            登記完了後にお知らせ投稿（IG・FB）
+          </td>
+        </tr>
+        <tr style="background:var(--rose-l)">
+          <td><strong>7月28日（月）<br>〜8月3日（日）</strong></td>
+          <td><span style="background:#B5685A;color:#fff;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px">ツアー</span></td>
+          <td>
+            <strong>タイツアー — 今年最大イベント</strong><br>
+            <span style="font-size:11.5px;color:var(--gray-m)">
+              7/31（金）泰日協会学校 訪問<br>
+              8/1（土）シーカーアジア ワークショップ<br>
+              　　　　 イマヌエルオーケストラ＋タイ在住日本人コラボ<br>
+              <strong style="color:var(--rose)">8/2（日）バンコクプラネタリウム チャリティーコンサート ★</strong><br>
+              　　　　 共催：Kind Angel Association／教育庁ほか複数団体<br>
+              　　　　 ゲスト：元劇団四季 木村花代さん<br>
+              　　　　 TV取材の可能性大／日本企業スポンサー希望
+            </span>
+          </td>
+          <td style="font-size:12px;color:var(--gray-d)">
+            <strong style="color:var(--rose)">⚠️ 圧縮レビュー体制</strong><br>
+            現地当日撮影→当日確認→翌日投稿<br>
+            Yukakoへの返信目安：数時間以内<br>
+            投稿頻度：通常の2〜3倍に増加
+          </td>
+        </tr>
+        <tr>
+          <td><strong>2026年秋<br>（日程調整中）</strong></td>
+          <td><span style="background:var(--amber-l);color:var(--amber);font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px">コンサート</span></td>
+          <td>
+            <strong>報告コンサート（50〜100名規模）</strong><br>
+            <span style="font-size:11.5px;color:var(--gray-m)">タイツアー活動報告。木村花代さん参加を調整中。サポーター・スポンサー募集の主戦場。</span>
+          </td>
+          <td style="font-size:12px;color:var(--gray-d)">
+            告知：コンサート1ヶ月前〜<br>
+            当日：リアルタイム投稿<br>
+            報告＋会員募集CTA
+          </td>
+        </tr>
+        <tr>
+          <td><strong>2027年1月頃</strong></td>
+          <td><span style="background:var(--sage-l);color:var(--forest);font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px">SNS</span></td>
+          <td>
+            <strong>外部告知 本格展開開始</strong><br>
+            <span style="font-size:11.5px;color:var(--gray-m)">週1回程度の外部告知スタート。フォロワー1,000人達成へ向けて本格的に拡大。</span>
+          </td>
+          <td style="font-size:12px;color:var(--gray-d)">
+            週1投稿ペースへ移行<br>
+            IG・FB同時更新
+          </td>
+        </tr>
+      </table>
+
+      <div class="sec-head" style="margin-top:32px">投稿頻度の目安</div>
+      <p class="sec-sub">時期によって投稿ペースを切り替える。</p>
+
+      <table class="rule-table">
+        <tr><th>時期</th><th>頻度</th><th>備考</th></tr>
+        <tr>
+          <td><strong>通常期</strong><br><span style="font-size:11px;color:var(--gray-m)">〜2026年末</span></td>
+          <td>月1〜2回</td>
+          <td>金曜午後にまどかさんが作成・予約投稿</td>
+        </tr>
+        <tr style="background:var(--rose-l)">
+          <td><strong>ツアー前後</strong><br><span style="font-size:11px;color:var(--gray-m)">7月後半〜8月前半</span></td>
+          <td><strong style="color:var(--rose)">週2〜3回</strong></td>
+          <td>圧縮レビュー体制。Yukakoへの確認返信を数時間以内に短縮</td>
+        </tr>
+        <tr>
+          <td><strong>外部告知期</strong><br><span style="font-size:11px;color:var(--gray-m)">2027年1月〜</span></td>
+          <td>週1回</td>
+          <td>IG・FB同時更新。サポーター会員への導線を必ず設置</td>
+        </tr>
+      </table>
+
+      <div style="margin-top:28px;padding:14px 18px;background:var(--sage-ll);border:1px dashed var(--sage);border-radius:10px;font-size:11.5px;color:var(--gray-m);line-height:1.75">
+        <strong style="color:var(--forest)">📅 Googleカレンダー連携（追加予定）</strong><br>
+        このタブへのGoogleカレンダー埋め込みは後日追加予定。カレンダー側を更新するだけでこのページにも自動反映される予定です。
+      </div>
+
+    </div>
+
+  </div><!-- /body -->
+</div><!-- /page -->
+
+<script>
+function show(key) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('sec-' + key).classList.add('active');
+  event.target.classList.add('active');
+  event.target.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function copyText(btn) {
+  const pre = btn.parentElement.querySelector('pre');
+  navigator.clipboard.writeText(pre.textContent).then(() => {
+    btn.textContent = 'コピー済み！';
+    setTimeout(() => btn.textContent = 'コピー', 1800);
+  });
+}
+</script>
+</body>
+</html>
