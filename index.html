@@ -38,6 +38,8 @@ body { font-family: 'Hiragino Sans','Hiragino Kaku Gothic ProN','Noto Sans JP',s
 .cover-updated { display: inline-flex; align-items: center; gap: 8px; margin-top: 18px; padding: 5px 14px; background: rgba(255,255,255,.12); border: 0.5px solid rgba(255,255,255,.25); border-radius: 20px; font-size: 11px; color: #fff; letter-spacing: .04em; }
 .cover-updated strong { color: #fff; font-weight: 600; }
 .cover-updated .label { color: #A8C4AD; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
+.cover-updated .update-note { color: #A8C4AD; font-size: 10px; font-style: italic; }
+.tab-new { display: inline-block; font-size: 9px; font-weight: 700; color: #fff; background: var(--rose); border-radius: 4px; padding: 1px 5px; margin-left: 4px; vertical-align: middle; letter-spacing: .04em; line-height: 1.6; }
 
 .body { background: var(--warm-wh); border-radius: 0 0 16px 16px; padding: 0 48px 48px; box-shadow: 0 4px 32px rgba(40,30,20,.08); }
 
@@ -265,8 +267,9 @@ body { font-family: 'Hiragino Sans','Hiragino Kaku Gothic ProN','Noto Sans JP',s
     <div class="cover-sub">SNS運用チーム共有資料</div>
     <div class="cover-updated">
       <span class="label">LAST UPDATED</span>
-      <strong>2026年4月22日</strong>
-      <span style="opacity:.6">/ ver. 2.2</span>
+      <strong>2026年5月1日</strong>
+      <span style="opacity:.6">/ ver. 2.3</span>
+      <span class="update-note">― 📅 スケジュールタブ追加</span>
     </div>
   </div>
 
@@ -279,6 +282,7 @@ body { font-family: 'Hiragino Sans','Hiragino Kaku Gothic ProN','Noto Sans JP',s
       <div class="tab" onclick="show('hashtag')">＃ ハッシュタグ</div>
       <div class="tab" onclick="show('partner')">🤝 コラボパートナー</div>
       <div class="tab" onclick="show('benchmark')" style="color:var(--amber)">🔍 参考ブランド分析</div>
+      <div class="tab" onclick="show('schedule')" style="color:var(--forest);font-weight:600">📅 スケジュール<span class="tab-new">NEW</span></div>
     </div>
 
     <!-- ══════════════════════════════════════════ -->
@@ -1316,6 +1320,135 @@ f Facebook: TambunProject
       <div style="margin-top:28px;padding:14px 18px;background:var(--amber-l);border:1px dashed var(--amber);border-radius:10px;font-size:11.5px;color:var(--gray-m);line-height:1.75">
         <strong style="color:var(--amber)">📌 次のステップ</strong><br>
         このタブの内容をMTGで議論し、「取り入れる／取り入れない／継続検討」を決定。取り入れると決まった要素は、本ガイドラインの該当タブ（デザイン・ボイス・写真ルール・投稿テンプレ）へ反映していく。
+      </div>
+
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- TAB 8: SCHEDULE -->
+    <!-- ══════════════════════════════════════════ -->
+    <div id="sec-schedule" class="section">
+
+      <div class="sec-head">2026年 活動スケジュール</div>
+      <p class="sec-sub">SNS投稿計画・法人化・イベントの全体像。投稿頻度の増減タイミングを把握するために使う。</p>
+
+      <div class="info-box" style="background:var(--sage-ll);border-left:3px solid var(--sage);padding:12px 16px;border-radius:8px;font-size:12.5px;line-height:1.75;margin-bottom:24px">
+        <strong style="color:var(--forest)">📌 このタブの使い方</strong><br>
+        イベント前後は投稿頻度を上げる。特に<strong>8月タイツアー期間</strong>はリアルタイム投稿を想定した圧縮レビュー体制（当日確認）に切り替える。Googleカレンダー連携は後日追加予定。
+      </div>
+
+      <table class="rule-table" style="width:100%">
+        <colgroup>
+          <col style="width:18%">
+          <col style="width:14%">
+          <col style="width:38%">
+          <col style="width:30%">
+        </colgroup>
+        <tr>
+          <th>時期</th>
+          <th>区分</th>
+          <th>イベント・施策</th>
+          <th>SNS対応</th>
+        </tr>
+        <tr>
+          <td><strong>6月6日（土）</strong></td>
+          <td><span style="background:var(--sage-l);color:var(--forest);font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px">ライブ</span></td>
+          <td>
+            <strong>渋谷松濤 壮行コンサート</strong><br>
+            <span style="font-size:11.5px;color:var(--gray-m)">タイツアーに向けた壮行コンサート。Ricco.（リコちゃん）グッズ販売開始。</span>
+          </td>
+          <td style="font-size:12px;color:var(--gray-d)">
+            告知①：5月下旬〜6月初旬<br>
+            告知②：6月3〜4日<br>
+            当日：リアルタイム or 予約投稿<br>
+            報告：6月7〜10日
+          </td>
+        </tr>
+        <tr>
+          <td><strong>7月1日（水）</strong></td>
+          <td><span style="background:var(--sage-l);color:var(--forest);font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px">法人化</span></td>
+          <td>
+            <strong>一般社団法人タンブンプロジェクト 登記</strong><br>
+            <span style="font-size:11.5px;color:var(--gray-m)">税理士・司法書士による書類確認完了済み。3名（Yukako・Hiroko・山形）で書類・ハンコを揃える。</span>
+          </td>
+          <td style="font-size:12px;color:var(--gray-d)">
+            登記完了後にお知らせ投稿（IG・FB）
+          </td>
+        </tr>
+        <tr style="background:var(--rose-l)">
+          <td><strong>7月28日（月）<br>〜8月3日（日）</strong></td>
+          <td><span style="background:#B5685A;color:#fff;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px">ツアー</span></td>
+          <td>
+            <strong>タイツアー — 今年最大イベント</strong><br>
+            <span style="font-size:11.5px;color:var(--gray-m)">
+              7/31（金）泰日協会学校 訪問<br>
+              8/1（土）シーカーアジア ワークショップ<br>
+              　　　　 イマヌエルオーケストラ＋タイ在住日本人コラボ<br>
+              <strong style="color:var(--rose)">8/2（日）バンコクプラネタリウム チャリティーコンサート ★</strong><br>
+              　　　　 共催：Kind Angel Association／教育庁ほか複数団体<br>
+              　　　　 ゲスト：元劇団四季 木村花代さん<br>
+              　　　　 TV取材の可能性大／日本企業スポンサー希望
+            </span>
+          </td>
+          <td style="font-size:12px;color:var(--gray-d)">
+            <strong style="color:var(--rose)">⚠️ 圧縮レビュー体制</strong><br>
+            現地当日撮影→当日確認→翌日投稿<br>
+            Yukakoへの返信目安：数時間以内<br>
+            投稿頻度：通常の2〜3倍に増加
+          </td>
+        </tr>
+        <tr>
+          <td><strong>2026年秋<br>（日程調整中）</strong></td>
+          <td><span style="background:var(--amber-l);color:var(--amber);font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px">コンサート</span></td>
+          <td>
+            <strong>報告コンサート（50〜100名規模）</strong><br>
+            <span style="font-size:11.5px;color:var(--gray-m)">タイツアー活動報告。木村花代さん参加を調整中。サポーター・スポンサー募集の主戦場。</span>
+          </td>
+          <td style="font-size:12px;color:var(--gray-d)">
+            告知：コンサート1ヶ月前〜<br>
+            当日：リアルタイム投稿<br>
+            報告＋会員募集CTA
+          </td>
+        </tr>
+        <tr>
+          <td><strong>2027年1月頃</strong></td>
+          <td><span style="background:var(--sage-l);color:var(--forest);font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px">SNS</span></td>
+          <td>
+            <strong>外部告知 本格展開開始</strong><br>
+            <span style="font-size:11.5px;color:var(--gray-m)">週1回程度の外部告知スタート。フォロワー1,000人達成へ向けて本格的に拡大。</span>
+          </td>
+          <td style="font-size:12px;color:var(--gray-d)">
+            週1投稿ペースへ移行<br>
+            IG・FB同時更新
+          </td>
+        </tr>
+      </table>
+
+      <div class="sec-head" style="margin-top:32px">投稿頻度の目安</div>
+      <p class="sec-sub">時期によって投稿ペースを切り替える。</p>
+
+      <table class="rule-table">
+        <tr><th>時期</th><th>頻度</th><th>備考</th></tr>
+        <tr>
+          <td><strong>通常期</strong><br><span style="font-size:11px;color:var(--gray-m)">〜2026年末</span></td>
+          <td>月1〜2回</td>
+          <td>金曜午後にまどかさんが作成・予約投稿</td>
+        </tr>
+        <tr style="background:var(--rose-l)">
+          <td><strong>ツアー前後</strong><br><span style="font-size:11px;color:var(--gray-m)">7月後半〜8月前半</span></td>
+          <td><strong style="color:var(--rose)">週2〜3回</strong></td>
+          <td>圧縮レビュー体制。Yukakoへの確認返信を数時間以内に短縮</td>
+        </tr>
+        <tr>
+          <td><strong>外部告知期</strong><br><span style="font-size:11px;color:var(--gray-m)">2027年1月〜</span></td>
+          <td>週1回</td>
+          <td>IG・FB同時更新。サポーター会員への導線を必ず設置</td>
+        </tr>
+      </table>
+
+      <div style="margin-top:28px;padding:14px 18px;background:var(--sage-ll);border:1px dashed var(--sage);border-radius:10px;font-size:11.5px;color:var(--gray-m);line-height:1.75">
+        <strong style="color:var(--forest)">📅 Googleカレンダー連携（追加予定）</strong><br>
+        このタブへのGoogleカレンダー埋め込みは後日追加予定。カレンダー側を更新するだけでこのページにも自動反映される予定です。
       </div>
 
     </div>
