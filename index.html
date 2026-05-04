@@ -38,13 +38,11 @@ body { font-family: 'Hiragino Sans','Hiragino Kaku Gothic ProN','Noto Sans JP',s
 .cover-updated { display: inline-flex; align-items: center; gap: 8px; margin-top: 18px; padding: 5px 14px; background: rgba(255,255,255,.12); border: 0.5px solid rgba(255,255,255,.25); border-radius: 20px; font-size: 11px; color: #fff; letter-spacing: .04em; }
 .cover-updated strong { color: #fff; font-weight: 600; }
 .cover-updated .label { color: #A8C4AD; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
-.cover-updated .update-note { color: #A8C4AD; font-size: 10px; font-style: italic; }
-.tab-new { display: inline-block; font-size: 9px; font-weight: 700; color: #fff; background: var(--rose); border-radius: 4px; padding: 1px 5px; margin-left: 4px; vertical-align: middle; letter-spacing: .04em; line-height: 1.6; }
 
 .body { background: var(--warm-wh); border-radius: 0 0 16px 16px; padding: 0 48px 48px; box-shadow: 0 4px 32px rgba(40,30,20,.08); }
 
 /* ── Tabs ── */
-.tabs { display: flex; flex-wrap: wrap; gap: 0; border-bottom: 2px solid var(--gray-l); margin: 0 -48px 36px; padding: 0 48px; position: sticky; top: 0; background: var(--warm-wh); z-index: 10; }
+.tabs { display: flex; gap: 0; border-bottom: 2px solid var(--gray-l); margin: 0 -48px 36px; padding: 0 48px; position: sticky; top: 0; background: var(--warm-wh); z-index: 10; }
 .tab { padding: 16px 20px 14px; font-size: 13px; font-weight: 500; color: var(--gray-m); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: all .18s; white-space: nowrap; }
 .tab:hover { color: var(--gray-d); }
 .tab.active { color: var(--forest); border-bottom-color: var(--forest); }
@@ -145,9 +143,15 @@ body { font-family: 'Hiragino Sans','Hiragino Kaku Gothic ProN','Noto Sans JP',s
   .tabs {
     margin: 0 -24px 28px;
     padding: 0 24px;
-    flex-wrap: wrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    flex-wrap: nowrap;
   }
-  .tab { padding: 12px 14px 10px; font-size: 12.5px; }
+  .tabs::-webkit-scrollbar { height: 3px; }
+  .tabs::-webkit-scrollbar-thumb { background: var(--gray-b); border-radius: 2px; }
+  .tab { padding: 14px 14px 12px; font-size: 12.5px; flex-shrink: 0; }
 
   .sec-head { font-size: 16px; margin: 24px 0 12px; }
   .sec-sub { font-size: 11.5px; }
@@ -194,7 +198,7 @@ body { font-family: 'Hiragino Sans','Hiragino Kaku Gothic ProN','Noto Sans JP',s
   .body { padding: 0 18px 28px; border-radius: 0; }
 
   .tabs { margin: 0 -18px 24px; padding: 0 18px; }
-  .tab { padding: 10px 11px 8px; font-size: 11.5px; }
+  .tab { padding: 12px 12px 10px; font-size: 12px; }
 
   .sec-head { font-size: 15px; margin: 20px 0 10px; padding-bottom: 8px; }
 
@@ -267,9 +271,8 @@ body { font-family: 'Hiragino Sans','Hiragino Kaku Gothic ProN','Noto Sans JP',s
     <div class="cover-sub">SNS運用チーム共有資料</div>
     <div class="cover-updated">
       <span class="label">LAST UPDATED</span>
-      <strong>2026年5月1日</strong>
-      <span style="opacity:.6">/ ver. 2.3</span>
-      <span class="update-note">― 📅 スケジュールタブ追加</span>
+      <strong>2026年4月22日</strong>
+      <span style="opacity:.6">/ ver. 1.8</span>
     </div>
   </div>
 
@@ -282,7 +285,6 @@ body { font-family: 'Hiragino Sans','Hiragino Kaku Gothic ProN','Noto Sans JP',s
       <div class="tab" onclick="show('hashtag')">＃ ハッシュタグ</div>
       <div class="tab" onclick="show('partner')">🤝 コラボパートナー</div>
       <div class="tab" onclick="show('benchmark')" style="color:var(--amber)">🔍 参考ブランド分析</div>
-      <div class="tab" onclick="show('schedule')" style="color:var(--forest);font-weight:600">📅 スケジュール<span class="tab-new">NEW</span></div>
     </div>
 
     <!-- ══════════════════════════════════════════ -->
@@ -364,22 +366,6 @@ body { font-family: 'Hiragino Sans','Hiragino Kaku Gothic ProN','Noto Sans JP',s
         <div class="swatch"><div class="swatch-color" style="background:#B04040"></div><div class="swatch-info"><div class="swatch-name">YouTube</div><div class="swatch-hex">#B04040</div><div class="swatch-use">Muted Red</div></div></div>
       </div>
 
-      <div class="sec-head">ブランドトーンの最終合意</div>
-      <div class="info-box"><strong>4/22 MTG決定事項</strong>。Yukakoさん・山形さんの合意により、Tambun Projectのビジュアルトーンは下記方向性で確定。</div>
-
-      <div class="voice-grid">
-        <div class="voice-card ok">
-          <div class="voice-head ok">✅ 採用するトーン</div>
-          <div class="voice-ex"><strong>柔らかい上品な色味</strong><small>Forest Green＋Sage の方向性で確定</small></div>
-          <div class="voice-ex"><strong>水彩画風のアート的な美しさ</strong><small>Ricco.さんメインビジュアルの世界観を継承</small></div>
-        </div>
-        <div class="voice-card ng">
-          <div class="voice-head ng">❌ 避けるトーン</div>
-          <div class="voice-ex"><strong>多色で散漫な配色</strong><small>現状HPで指摘された課題。本ガイドラインで統制</small></div>
-          <div class="voice-ex"><strong>「かわいそう」を喚起する構図</strong><small>5ブランド分析でも共通DNA。詳細は写真ルールタブ参照</small></div>
-        </div>
-      </div>
-
     </div>
 
     <!-- ══════════════════════════════════════════ -->
@@ -413,14 +399,10 @@ body { font-family: 'Hiragino Sans','Hiragino Kaku Gothic ProN','Noto Sans JP',s
       </div>
 
       <div class="sec-head">写真加工ルール</div>
-      <div class="info-box" style="margin-bottom:14px">
-        <strong>📌 4/22 MTG決定</strong>：プロカメラマン撮影写真は<strong>加工なし</strong>でそのまま使用。メンバー自前撮影写真は<strong>BeautyPlus 有料版</strong>で処理してから使用する。
-      </div>
       <table class="rule-table">
         <tr><th>項目</th><th>ルール</th><th>理由</th></tr>
-        <tr><td><strong>処理ツール</strong></td><td>プロ撮影：加工なし／自前撮影：<strong>BeautyPlus 有料版</strong></td><td>4/22 MTG決定</td></tr>
         <tr><td>明るさ</td><td>自然な明るさを基準に、やや明るめ（+5〜15）</td><td>温かみと清潔感を両立</td></tr>
-        <tr><td>彩度</td><td>彩度はやや控えめ（-5〜10）で落ち着いた印象に</td><td>柔らかい上品な色味（MTG合意）</td></tr>
+        <tr><td>彩度</td><td>彩度はやや控えめ（-5〜10）で落ち着いた印象に</td><td>ヘラルボニーらしい上品さ</td></tr>
         <tr><td>色温度</td><td>ウォームトーン（やや黄み寄り）に統一</td><td>クリーム系パレットとの整合性</td></tr>
         <tr><td>フィルター</td><td>Lightroom「Fade」や「Warm」系。激しいフィルター不使用</td><td>過度な加工は信頼感を損なう</td></tr>
         <tr><td>テキスト挿入</td><td>Forestグリーン or クリーム系のみ。フォントはセリフ推奨</td><td>ブランドの統一感</td></tr>
@@ -532,87 +514,145 @@ body { font-family: 'Hiragino Sans','Hiragino Kaku Gothic ProN','Noto Sans JP',s
     <!-- ══════════════════════════════════════════ -->
     <div id="sec-voice" class="section">
 
-      <div class="sec-head">ブランドボイスとは</div>
-      <div class="info-box">Tambun Projectが話すときの「人格・口調・視点」のこと。すべての投稿・文章がこの声で書かれることで、フォロワーは「Tambunらしさ」を感じる。</div>
+      <div class="sec-head">Tambunの人格とは</div>
+      <div class="info-box">FB・IG計273件・8年分（2018〜2026年）の実際の投稿データを分析して導き出した「本物のTambunの声」。誰が書いても同じ人格が宿るよう、ここに記録する。</div>
 
-      <div class="sec-head">話しかける相手（ターゲット読者）</div>
-      <p class="sec-sub">投稿を書くとき、この3層の読者をイメージする。「不特定多数」ではなく、具体的な人を想像して書く。</p>
+      <div class="sec-head">人格DNA — 8年間変わらなかった5つの核心</div>
+      <p class="sec-sub">投稿担当者が変わっても、これだけは絶対に守る5箇条。</p>
 
-      <div style="display:grid;gap:10px;margin-bottom:20px">
-        <div style="background:var(--sage-l);border-left:3px solid var(--sage);border-radius:0 8px 8px 0;padding:12px 16px">
-          <div style="font-size:11px;color:var(--sage);font-weight:700;letter-spacing:.06em">第1層 — CORE</div>
-          <div style="font-size:13px;font-weight:700;color:var(--forest);margin-top:2px">個人的なネットワークから来る善意ある支援者</div>
-          <div style="font-size:11.5px;color:var(--gray-d);margin-top:4px;line-height:1.65">Yukakoさん・Hirokoさん・山形さんの音楽ファン／知人ベース。すでに何らかの形でつながっている人たち。</div>
+      <div style="display:grid;gap:10px;margin-bottom:24px">
+        <div style="border:1.5px solid var(--sage);border-radius:10px;padding:14px 16px">
+          <div style="font-size:13px;font-weight:700;color:var(--forest);margin-bottom:6px">① ✨ はTambunの魂の絵文字（FB131回・IG106回・計237回）</div>
+          <div style="font-size:12.5px;color:var(--gray-d);line-height:1.7">2018年の第1投稿から2026年の最新投稿まで、すべての時代で使用回数1位。Tambunのビジュアルシンボル。どの担当者が書いても必ず入れる唯一の絶対ルール。</div>
         </div>
-
-        <div style="background:var(--sage-l);border-left:3px solid var(--sage);border-radius:0 8px 8px 0;padding:12px 16px">
-          <div style="font-size:11px;color:var(--sage);font-weight:700;letter-spacing:.06em">第2層 — RESONANCE</div>
-          <div style="font-size:13px;font-weight:700;color:var(--forest);margin-top:2px">タイへの特別な思いを持つ人々</div>
-          <div style="font-size:11.5px;color:var(--gray-d);margin-top:4px;line-height:1.65">タイ在住経験者・タイ旅行愛好家・タイ文化に親しみのある人。共感を起点に広がる層。</div>
+        <div style="border:1.5px solid var(--amber);border-radius:10px;padding:14px 16px">
+          <div style="font-size:13px;font-weight:700;color:var(--amber-d);margin-bottom:6px">②「本当に」だけで強調する（FB49回・IG43回・計92回）</div>
+          <div style="font-size:12.5px;color:var(--gray-d);line-height:1.7">「非常に」「大変」「とても」を使わず、「本当に」一語で誠意を伝える。8年間一度も揺れていない。<br>✅ 本当にありがとうございました　✅ 本当によかった　❌ 非常に感謝しております</div>
         </div>
-
-        <div style="background:var(--amber-l);border-left:3px solid var(--amber);border-radius:0 8px 8px 0;padding:12px 16px">
-          <div style="font-size:11px;color:var(--amber);font-weight:700;letter-spacing:.06em">第3層 — ACTION</div>
-          <div style="font-size:13px;font-weight:700;color:var(--forest);margin-top:2px">音楽活動に興味があり「行動できる」支援者</div>
-          <div style="font-size:11.5px;color:var(--gray-d);margin-top:4px;line-height:1.65">サポーター会員・寄付・ツアー参加など、具体的なアクションに動ける層。CTAを設計する際の主ターゲット。</div>
+        <div style="border:1.5px solid #7F77DD;border-radius:10px;padding:14px 16px">
+          <div style="font-size:13px;font-weight:700;color:#534AB7;margin-bottom:6px">③「どうぞ」で招く、押しつけない（FB41回）</div>
+          <div style="font-size:12.5px;color:var(--gray-d);line-height:1.7">「ぜひ来てください！」ではなく「どうぞ、よかったらいらしてください🤲」。創設期から一貫。相手の意思を尊重する言い方がTambunの品格を作る。<br>締めの定型：<strong>「どうぞ宜しくお願いします🤲」</strong>または<strong>「本当にありがとうございました〜🫶」</strong></div>
+        </div>
+        <div style="border:1.5px solid var(--rose);border-radius:10px;padding:14px 16px">
+          <div style="font-size:13px;font-weight:700;color:var(--rose);margin-bottom:6px">④ 感謝は「具体的な人名」で表す</div>
+          <div style="font-size:12.5px;color:var(--gray-d);line-height:1.7">「皆さまありがとう」で終わらない。関わった人を必ず名前で呼ぶ。これがTambunの「人と人」の温度感の正体。<br>✅ 今回ご尽力いただいた木元先生、鈴木舞さん　❌ 関係者の皆様に感謝いたします</div>
+        </div>
+        <div style="border:1.5px solid var(--sage);border-radius:10px;padding:14px 16px">
+          <div style="font-size:13px;font-weight:700;color:var(--forest);margin-bottom:6px">⑤「一人じゃとても出来ない」が原点（2019年6月24日・最初の投稿の言葉）</div>
+          <div style="font-size:12.5px;color:var(--gray-d);line-height:1.7">8年後の現在も、具体的な人名で感謝を表し、関わる人全員を投稿に登場させる。「仲間・チーム・つながり」への感謝がTambunの根っこ。</div>
         </div>
       </div>
 
-      <div class="warn-box" style="margin-bottom:20px">
-        <strong>📌 重要な視点：「善意 ≠ 行動」</strong><br>
-        善意はあるが行動できない人、と、実際に動ける人は別。投稿では<strong>具体的な行動の選択肢</strong>（プロフリンク・サポーター登録・ツアー参加等）を提示し、行動できる人の背中を押す。
-      </div>
+      <div class="sec-head">文体ルール — 確定版（8年・273件分析）</div>
+      <table class="rule-table">
+        <tr><th style="width:18%">項目</th><th>ルール</th><th style="width:38%">具体例・補足</th></tr>
+        <tr><td><strong>書き出し</strong></td><td>季節・日付・場所から入る。いきなり告知しない</td><td>「日本では 桜の開花の便りが届きはじめました🌸」「7/31から始まりました バンコクラオスツアー」</td></tr>
+        <tr><td><strong>IG書き出し</strong></td><td>「・」を2行置いてから本文（2022年以降確立）</td><td>・<br>・<br>本文スタート…</td></tr>
+        <tr><td><strong>文の長さ</strong></td><td>800〜900字が最高エンゲージ。短くしすぎない</td><td>2020年に300字→873字に増えた年、リアクション3倍。「丁寧に長く書く」がTambunの成長エンジン</td></tr>
+        <tr><td><strong>改行</strong></td><td>1文1行。3〜4行ごとに空白行を入れる</td><td>スマホで読みやすいリズムを作る</td></tr>
+        <tr><td><strong>感情の位置</strong></td><td>「事実・描写 → 感情」の順。感情は最後の1〜2行</td><td>現場を描写してから「本当によかったと感無量でした🥹💓」で締める</td></tr>
+        <tr><td><strong>強調副詞</strong></td><td>「本当に」のみ。他の強調語は使わない</td><td>❌ 非常に / 大変 / とても → ✅ 本当に</td></tr>
+        <tr><td><strong>英語併記</strong></td><td>日本語を書き切った後、区切り線を入れて英語版</td><td>日本語版が主。英語は従。順番を逆にしない</td></tr>
+        <tr><td><strong>CTA</strong></td><td>「どうぞ〜宜しくお願いします🤲」「応援いただけたら嬉しいです📣」</td><td>押しつけず、招く表現で締める</td></tr>
+      </table>
 
-      <div class="sec-head">キーワード辞書</div>
-      <p class="sec-sub">積極的に使いたい言葉・概念。これらを自然に文章に織り交ぜる。</p>
-      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px">
+      <div class="sec-head">キーワード辞書（8年間の出現頻度順）</div>
+      <p class="sec-sub">積極的に使いたい言葉。出現回数が多いほど「Tambunらしさ」の核に近い。</p>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px">
+        <span style="background:var(--sage-l);color:var(--forest);padding:5px 14px;border-radius:20px;font-size:13px;font-weight:500">本当に（92回）</span>
+        <span style="background:var(--sage-l);color:var(--forest);padding:5px 14px;border-radius:20px;font-size:13px;font-weight:500">music with no border（74回）</span>
+        <span style="background:var(--sage-l);color:var(--forest);padding:5px 14px;border-radius:20px;font-size:13px;font-weight:500">タンブン（74回）</span>
+        <span style="background:var(--sage-l);color:var(--forest);padding:5px 14px;border-radius:20px;font-size:13px;font-weight:500">どうぞ（65回）</span>
+        <span style="background:var(--sage-l);color:var(--forest);padding:5px 14px;border-radius:20px;font-size:13px;font-weight:500">ありがとうございました（63回）</span>
+        <span style="background:var(--sage-l);color:var(--forest);padding:5px 14px;border-radius:20px;font-size:13px;font-weight:500">応援（55回）</span>
+        <span style="background:var(--sage-l);color:var(--forest);padding:5px 14px;border-radius:20px;font-size:13px;font-weight:500">嬉しい（46回）</span>
+        <span style="background:var(--sage-l);color:var(--forest);padding:5px 14px;border-radius:20px;font-size:13px;font-weight:500">幸せ（37回）</span>
+        <span style="background:var(--sage-l);color:var(--forest);padding:5px 14px;border-radius:20px;font-size:13px;font-weight:500">実現（31回）</span>
+        <span style="background:var(--sage-l);color:var(--forest);padding:5px 14px;border-radius:20px;font-size:13px;font-weight:500">感謝（27回）</span>
         <span style="background:var(--sage-l);color:var(--forest);padding:5px 14px;border-radius:20px;font-size:13px;font-weight:500">御縁</span>
-        <span style="background:var(--sage-l);color:var(--forest);padding:5px 14px;border-radius:20px;font-size:13px;font-weight:500">タンブン（徳を積む）</span>
-        <span style="background:var(--sage-l);color:var(--forest);padding:5px 14px;border-radius:20px;font-size:13px;font-weight:500">優しい輪が広がる</span>
-        <span style="background:var(--sage-l);color:var(--forest);padding:5px 14px;border-radius:20px;font-size:13px;font-weight:500">感謝</span>
-        <span style="background:var(--sage-l);color:var(--forest);padding:5px 14px;border-radius:20px;font-size:13px;font-weight:500">共感と想像力</span>
-        <span style="background:var(--sage-l);color:var(--forest);padding:5px 14px;border-radius:20px;font-size:13px;font-weight:500">With no borders</span>
-        <span style="background:var(--sage-l);color:var(--forest);padding:5px 14px;border-radius:20px;font-size:13px;font-weight:500">音楽でつながる</span>
-        <span style="background:var(--sage-l);color:var(--forest);padding:5px 14px;border-radius:20px;font-size:13px;font-weight:500">一緒に</span>
-        <span style="background:var(--sage-l);color:var(--forest);padding:5px 14px;border-radius:20px;font-size:13px;font-weight:500">届ける</span>
-        <span style="background:var(--sage-l);color:var(--forest);padding:5px 14px;border-radius:20px;font-size:13px;font-weight:500">Music With No Borders</span>
+        <span style="background:var(--sage-l);color:var(--forest);padding:5px 14px;border-radius:20px;font-size:13px;font-weight:500">積み重ね</span>
+        <span style="background:var(--sage-l);color:var(--forest);padding:5px 14px;border-radius:20px;font-size:13px;font-weight:500">続けて</span>
+        <span style="background:var(--sage-l);color:var(--forest);padding:5px 14px;border-radius:20px;font-size:13px;font-weight:500">ライフワーク</span>
+        <span style="background:var(--sage-l);color:var(--forest);padding:5px 14px;border-radius:20px;font-size:13px;font-weight:500">キラキラした目</span>
+        <span style="background:var(--sage-l);color:var(--forest);padding:5px 14px;border-radius:20px;font-size:13px;font-weight:500">まっすぐな想い</span>
+        <span style="background:var(--sage-l);color:var(--forest);padding:5px 14px;border-radius:20px;font-size:13px;font-weight:500">感無量</span>
+        <span style="background:var(--sage-l);color:var(--forest);padding:5px 14px;border-radius:20px;font-size:13px;font-weight:500">ドキドキワクワク</span>
       </div>
 
-      <div class="sec-head">OK / NG 表現例</div>
+      <div class="sec-head">絵文字パレット（8年間・確定版）</div>
+      <p class="sec-sub">使う絵文字を揃えることで、誰が投稿してもTambunらしくなる。</p>
+      <table class="rule-table">
+        <tr><th style="width:20%">カテゴリ</th><th style="width:30%">絵文字</th><th>使い方・頻度</th></tr>
+        <tr><td><strong>必須（毎投稿）</strong></td><td style="font-size:18px;letter-spacing:4px">✨</td><td>FB131回・IG106回。文末・強調・喜びの場面すべてに。これだけは絶対に外さない</td></tr>
+        <tr><td><strong>感謝・祈り系</strong></td><td style="font-size:16px;letter-spacing:3px">🙏🤲🫶</td><td>締めの「どうぞ宜しくお願いします🤲」「ありがとうございました🫶」に必ず入れる</td></tr>
+        <tr><td><strong>感動・感情系</strong></td><td style="font-size:16px;letter-spacing:3px">😭🥹💓💕</td><td>「音楽をやって来て本当によかった😭」感情が高まった文の末尾に</td></tr>
+        <tr><td><strong>活動・成長系</strong></td><td style="font-size:16px;letter-spacing:3px">🌱🌈</td><td>活動報告・新たな展開を伝えるときに</td></tr>
+        <tr><td><strong>告知・CTA系</strong></td><td style="font-size:16px;letter-spacing:3px">📣🔗</td><td>「応援いただけたら嬉しいです📣」告知やリンク誘導のときだけに限定使用</td></tr>
+        <tr><td><strong>音楽系</strong></td><td style="font-size:16px;letter-spacing:3px">🎻🎹🎤♪</td><td>音楽・演奏の内容に言及するときに</td></tr>
+        <tr><td><strong>タイ・国際系</strong></td><td style="font-size:16px;letter-spacing:3px">🇹🇭🌏</td><td>タイツアー・バンコク・国際活動に関連する投稿に</td></tr>
+      </table>
+
+      <div class="sec-head">OK / NG 表現例（8年データから抽出）</div>
       <div class="voice-grid">
         <div class="voice-card ok">
-          <div class="voice-head ok">✓ こんな言葉で書く</div>
-          <div class="voice-ex">「タイの子どもたちと音楽で出会い、笑顔を分かち合いました。」<small>→ 対等な出会いとして描く</small></div>
-          <div class="voice-ex">「善意はあるけど何をすればいいかわからない、そんな方へ。」<small>→ ターゲットに直接語りかける</small></div>
-          <div class="voice-ex">「あなたの支援が、この笑顔につながりました。ありがとうございます。」<small>→ 結果と感謝をセットで伝える</small></div>
-          <div class="voice-ex">「音楽に国境はない、と改めて感じた1日でした。」<small>→ メンバーの率直な気持ちを語る</small></div>
+          <div class="voice-head ok">✓ Tambunらしい表現</div>
+          <div class="voice-ex">「みんな純粋でキラキラした目をして聞いてくれて まっすぐな想いをたくさん受け取って 音楽をやって来て本当によかった」<small>→ 事実を描写してから感情をのせる</small></div>
+          <div class="voice-ex">「今回ご尽力いただいた木元先生、シーカーアジアの皆さまに 本当にありがとうございました〜🫶」<small>→ 具体的な人名で感謝を表す</small></div>
+          <div class="voice-ex">「5年ぶりのバンコクツアーが ようやく実現しました😭」<small>→「実現」「ようやく」で積み重ねを伝える</small></div>
+          <div class="voice-ex">「タイに行けなくても、一緒に旅立てる場所があります」<small>→「どうぞ」で招く、押しつけない</small></div>
         </div>
         <div class="voice-card ng">
-          <div class="voice-head ng">✕ こんな言葉は使わない</div>
-          <div class="voice-ex">「貧困に苦しむ子どもたちを救う」<small>→ 上から目線・かわいそうな文脈はNG</small></div>
-          <div class="voice-ex">「スラム街で奇跡が起きました」<small>→ センセーショナルな表現はNG</small></div>
-          <div class="voice-ex">「あなたの運命が変わる出会い」<small>→ スピリチュアルすぎる表現はNG</small></div>
-          <div class="voice-ex">「今すぐ寄付して命を救おう」<small>→ 圧迫感のある訴求はNG</small></div>
+          <div class="voice-head ng">✕ 使わない表現</div>
+          <div class="voice-ex">「スラム街の子供達」<small>→「クロントイ地区で育った子どもたち」「バンコクのコミュニティで音楽を学ぶ若者たち」に置き換え</small></div>
+          <div class="voice-ex">「貧困層の人々を救う」「かわいそうな〜」<small>→ 上から目線・同情の文脈はNG</small></div>
+          <div class="voice-ex">「スラム街の奇跡」<small>→ センセーショナルな表現はNG</small></div>
+          <div class="voice-ex">「非常に感謝しております」「大変お世話になりました」<small>→「本当に」に統一。硬いビジネス敬語は使わない</small></div>
+          <div class="voice-ex">「今すぐ寄付を！」<small>→ 圧迫感のある訴求はNG。「応援いただけたら嬉しいです」に</small></div>
         </div>
       </div>
+
+      <div class="sec-head">プラットフォーム別 文体の差</div>
+      <div class="info-box">人格は同じ。フォーマットだけ変える。</div>
+      <table class="rule-table">
+        <tr><th style="width:18%">項目</th><th>Facebook</th><th>Instagram</th></tr>
+        <tr><td><strong>書き出し</strong></td><td>季節・日付・場所から。「〜報告」「〜お知らせ」も可</td><td>「・」を2行置いてから本文スタート</td></tr>
+        <tr><td><strong>文字数</strong></td><td>800〜900字（2025-26年 平均リーチ354で過去最高）</td><td>800〜900字（カルーセルとのバランスを考慮）</td></tr>
+        <tr><td><strong>ハッシュタグ</strong></td><td>末尾に3〜5個</td><td>本文後に2〜3行空けて最大5個（2025年12月仕様）</td></tr>
+        <tr><td><strong>投稿フォーマット</strong></td><td>テキスト中心・写真1〜3枚</td><td>カルーセル（複数枚）が基本。1枚目で目を止める</td></tr>
+        <tr><td><strong>英語併記</strong></td><td>日本語を書き切った後、区切り線の後に英語版</td><td>同左。英語版を省略するケースも可</td></tr>
+      </table>
 
       <div class="sec-head">トーンの設定</div>
       <table class="rule-table">
-        <tr><th>軸</th><th>Tambun Projectのトーン</th><th>避けるトーン</th></tr>
+        <tr><th style="width:18%">軸</th><th>Tambun Projectのトーン</th><th>避けるトーン</th></tr>
         <tr><td>距離感</td><td>友人のように温かく、でも丁寧に</td><td>過度にフォーマルまたは馴れ馴れしすぎ</td></tr>
         <tr><td>視点</td><td>対等・共に歩む（支援者でなく仲間として）</td><td>上から目線・支援してあげる感覚</td></tr>
-        <tr><td>感情</td><td>喜び・感謝・驚き・発見</td><td>憐れみ・悲しみを強調した感情</td></tr>
-        <tr><td>複雑さ</td><td>わかりやすく、一文一メッセージ</td><td>長すぎる文・難しい言葉の羅列</td></tr>
-        <tr><td>文末</td><td>体言止め or ですます調で統一</td><td>文末が毎回バラバラ</td></tr>
+        <tr><td>感情の出し方</td><td>事実を先に描写してから、最後に感情をのせる</td><td>感情から入る・感情を押しつける</td></tr>
+        <tr><td>感謝の形</td><td>具体的な人名を入れて感謝する</td><td>「皆さま」だけで終わる抽象的な感謝</td></tr>
+        <tr><td>長さ</td><td>800〜900字。丁寧に書く</td><td>短すぎる投稿（300字以下）はリーチが低い</td></tr>
+      </table>
+
+      <div class="sec-head">エンゲージメントが高い投稿の条件（8年データより）</div>
+      <p class="sec-sub">過去の実績から、どんな投稿が反応を得やすいかが明確になっている。</p>
+      <table class="rule-table">
+        <tr><th style="width:5%">順</th><th style="width:35%">投稿タイプ</th><th>なぜ効くか</th></tr>
+        <tr><td>1</td><td><strong>受賞・表彰・メディア掲載の報告</strong></td><td>第三者機関による承認。受賞名・数字を具体的に入れる（FB 198RT・リーチ1,422が最高記録）</td></tr>
+        <tr><td>2</td><td><strong>現場の詳細レポート（800字以上）</strong></td><td>関わった全員の名前を入れた詳細報告。「感無量でした」で締める（194RT）</td></tr>
+        <tr><td>3</td><td><strong>「初めて」「5年ぶり」「今年最大」</strong></td><td>特別感のある言葉が高エンゲージを生む（179RT）</td></tr>
+        <tr><td>4</td><td><strong>季節・節目の挨拶＋近況</strong></td><td>フォロワーとの日常的なつながりを維持する</td></tr>
+        <tr><td>注意</td><td><strong>数値のみ・告知のみの投稿</strong></td><td>リーチが著しく低い。告知にも必ず「現場の温度」を添える</td></tr>
       </table>
 
       <div class="sec-head">CTAのパターン集</div>
-      <p class="sec-sub">投稿の最後に使えるCall to Action（行動喚起）フレーズ。コピペして使ってOK。</p>
-      <div class="cta-row"><div class="cta-type">会員向け</div><div class="cta-text">▷ 一緒にタイへ行きませんか？サポーター会員の詳細はプロフィールリンクから。</div></div>
-      <div class="cta-row"><div class="cta-type">寄付向け</div><div class="cta-text">▷ 活動を応援してくださる方はプロフィールのリンクへ。小さな支援が大きな音楽になります。</div></div>
-      <div class="cta-row"><div class="cta-type">認知向け</div><div class="cta-text">▷ 「タンブン」という言葉を知っていますか？プロフィールから活動の詳細をぜひご覧ください。</div></div>
+      <p class="sec-sub">投稿の最後に使えるCall to Action。コピーして使ってOK。</p>
+      <div class="cta-row"><div class="cta-type">締め（定型）</div><div class="cta-text">どうぞ宜しくお願いします🤲</div></div>
+      <div class="cta-row"><div class="cta-type">御礼（定型）</div><div class="cta-text">本当にありがとうございました〜🫶</div></div>
+      <div class="cta-row"><div class="cta-type">応援依頼</div><div class="cta-text">引き続き応援いただけたら嬉しいです📣 どうぞ宜しくお願いします🤲</div></div>
+      <div class="cta-row"><div class="cta-type">コンサート</div><div class="cta-text">皆さまのお越しを心よりお待ちしております。どうぞ宜しくお願いします🤲</div></div>
+      <div class="cta-row"><div class="cta-type">会員向け</div><div class="cta-text">▷ サポーター会員の詳細はプロフィールリンクから。一緒に音楽で世界をつなげましょう。</div></div>
+      <div class="cta-row"><div class="cta-type">寄付向け</div><div class="cta-text">▷ 活動を応援してくださる方はプロフィールのリンクへ。皆さまのご支援が音楽になります。</div></div>
+      <div class="cta-row"><div class="cta-type">認知向け</div><div class="cta-text">▷ 「タンブン」という言葉をご存じですか？プロフィールから活動の詳細をぜひご覧ください。</div></div>
       <div class="cta-row"><div class="cta-type">共感向け</div><div class="cta-text">▷ タイが好きな方、国際協力に興味ある方、ぜひフォローしてつながりましょう。</div></div>
-      <div class="cta-row"><div class="cta-type">イベント</div><div class="cta-text">▷ コンサートの詳細・お申込みはプロフィールリンクから。ぜひ現地で一緒に音楽を感じてください。</div></div>
 
     </div>
 
@@ -1324,135 +1364,6 @@ f Facebook: TambunProject
 
     </div>
 
-    <!-- ══════════════════════════════════════════ -->
-    <!-- TAB 8: SCHEDULE -->
-    <!-- ══════════════════════════════════════════ -->
-    <div id="sec-schedule" class="section">
-
-      <div class="sec-head">2026年 活動スケジュール</div>
-      <p class="sec-sub">SNS投稿計画・法人化・イベントの全体像。投稿頻度の増減タイミングを把握するために使う。</p>
-
-      <div class="info-box" style="background:var(--sage-ll);border-left:3px solid var(--sage);padding:12px 16px;border-radius:8px;font-size:12.5px;line-height:1.75;margin-bottom:24px">
-        <strong style="color:var(--forest)">📌 このタブの使い方</strong><br>
-        イベント前後は投稿頻度を上げる。特に<strong>8月タイツアー期間</strong>はリアルタイム投稿を想定した圧縮レビュー体制（当日確認）に切り替える。Googleカレンダー連携は後日追加予定。
-      </div>
-
-      <table class="rule-table" style="width:100%">
-        <colgroup>
-          <col style="width:18%">
-          <col style="width:14%">
-          <col style="width:38%">
-          <col style="width:30%">
-        </colgroup>
-        <tr>
-          <th>時期</th>
-          <th>区分</th>
-          <th>イベント・施策</th>
-          <th>SNS対応</th>
-        </tr>
-        <tr>
-          <td><strong>6月6日（土）</strong></td>
-          <td><span style="background:var(--sage-l);color:var(--forest);font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px">ライブ</span></td>
-          <td>
-            <strong>渋谷松濤 壮行コンサート</strong><br>
-            <span style="font-size:11.5px;color:var(--gray-m)">タイツアーに向けた壮行コンサート。Ricco.（リコちゃん）グッズ販売開始。</span>
-          </td>
-          <td style="font-size:12px;color:var(--gray-d)">
-            告知①：5月下旬〜6月初旬<br>
-            告知②：6月3〜4日<br>
-            当日：リアルタイム or 予約投稿<br>
-            報告：6月7〜10日
-          </td>
-        </tr>
-        <tr>
-          <td><strong>7月1日（水）</strong></td>
-          <td><span style="background:var(--sage-l);color:var(--forest);font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px">法人化</span></td>
-          <td>
-            <strong>一般社団法人タンブンプロジェクト 登記</strong><br>
-            <span style="font-size:11.5px;color:var(--gray-m)">税理士・司法書士による書類確認完了済み。3名（Yukako・Hiroko・山形）で書類・ハンコを揃える。</span>
-          </td>
-          <td style="font-size:12px;color:var(--gray-d)">
-            登記完了後にお知らせ投稿（IG・FB）
-          </td>
-        </tr>
-        <tr style="background:var(--rose-l)">
-          <td><strong>7月28日（月）<br>〜8月3日（日）</strong></td>
-          <td><span style="background:#B5685A;color:#fff;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px">ツアー</span></td>
-          <td>
-            <strong>タイツアー — 今年最大イベント</strong><br>
-            <span style="font-size:11.5px;color:var(--gray-m)">
-              7/31（金）泰日協会学校 訪問<br>
-              8/1（土）シーカーアジア ワークショップ<br>
-              　　　　 イマヌエルオーケストラ＋タイ在住日本人コラボ<br>
-              <strong style="color:var(--rose)">8/2（日）バンコクプラネタリウム チャリティーコンサート ★</strong><br>
-              　　　　 共催：Kind Angel Association／教育庁ほか複数団体<br>
-              　　　　 ゲスト：元劇団四季 木村花代さん<br>
-              　　　　 TV取材の可能性大／日本企業スポンサー希望
-            </span>
-          </td>
-          <td style="font-size:12px;color:var(--gray-d)">
-            <strong style="color:var(--rose)">⚠️ 圧縮レビュー体制</strong><br>
-            現地当日撮影→当日確認→翌日投稿<br>
-            Yukakoへの返信目安：数時間以内<br>
-            投稿頻度：通常の2〜3倍に増加
-          </td>
-        </tr>
-        <tr>
-          <td><strong>2026年秋<br>（日程調整中）</strong></td>
-          <td><span style="background:var(--amber-l);color:var(--amber);font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px">コンサート</span></td>
-          <td>
-            <strong>報告コンサート（50〜100名規模）</strong><br>
-            <span style="font-size:11.5px;color:var(--gray-m)">タイツアー活動報告。木村花代さん参加を調整中。サポーター・スポンサー募集の主戦場。</span>
-          </td>
-          <td style="font-size:12px;color:var(--gray-d)">
-            告知：コンサート1ヶ月前〜<br>
-            当日：リアルタイム投稿<br>
-            報告＋会員募集CTA
-          </td>
-        </tr>
-        <tr>
-          <td><strong>2027年1月頃</strong></td>
-          <td><span style="background:var(--sage-l);color:var(--forest);font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px">SNS</span></td>
-          <td>
-            <strong>外部告知 本格展開開始</strong><br>
-            <span style="font-size:11.5px;color:var(--gray-m)">週1回程度の外部告知スタート。フォロワー1,000人達成へ向けて本格的に拡大。</span>
-          </td>
-          <td style="font-size:12px;color:var(--gray-d)">
-            週1投稿ペースへ移行<br>
-            IG・FB同時更新
-          </td>
-        </tr>
-      </table>
-
-      <div class="sec-head" style="margin-top:32px">投稿頻度の目安</div>
-      <p class="sec-sub">時期によって投稿ペースを切り替える。</p>
-
-      <table class="rule-table">
-        <tr><th>時期</th><th>頻度</th><th>備考</th></tr>
-        <tr>
-          <td><strong>通常期</strong><br><span style="font-size:11px;color:var(--gray-m)">〜2026年末</span></td>
-          <td>月1〜2回</td>
-          <td>金曜午後にまどかさんが作成・予約投稿</td>
-        </tr>
-        <tr style="background:var(--rose-l)">
-          <td><strong>ツアー前後</strong><br><span style="font-size:11px;color:var(--gray-m)">7月後半〜8月前半</span></td>
-          <td><strong style="color:var(--rose)">週2〜3回</strong></td>
-          <td>圧縮レビュー体制。Yukakoへの確認返信を数時間以内に短縮</td>
-        </tr>
-        <tr>
-          <td><strong>外部告知期</strong><br><span style="font-size:11px;color:var(--gray-m)">2027年1月〜</span></td>
-          <td>週1回</td>
-          <td>IG・FB同時更新。サポーター会員への導線を必ず設置</td>
-        </tr>
-      </table>
-
-      <div style="margin-top:28px;padding:14px 18px;background:var(--sage-ll);border:1px dashed var(--sage);border-radius:10px;font-size:11.5px;color:var(--gray-m);line-height:1.75">
-        <strong style="color:var(--forest)">📅 Googleカレンダー連携（追加予定）</strong><br>
-        このタブへのGoogleカレンダー埋め込みは後日追加予定。カレンダー側を更新するだけでこのページにも自動反映される予定です。
-      </div>
-
-    </div>
-
   </div><!-- /body -->
 </div><!-- /page -->
 
@@ -1462,6 +1373,7 @@ function show(key) {
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   document.getElementById('sec-' + key).classList.add('active');
   event.target.classList.add('active');
+  event.target.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 function copyText(btn) {
