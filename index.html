@@ -256,6 +256,119 @@ body { font-family: 'Hiragino Sans','Hiragino Kaku Gothic ProN','Noto Sans JP',s
   .partner-meta { grid-template-columns: 80px 1fr; font-size: 11px; }
   .partner-card { padding: 14px 16px; }
 }
+
+
+/* ═══════════════════════════════════════════ */
+/* TAB 9: SUPPORTER PROGRAM (added 2026.05) */
+/* ═══════════════════════════════════════════ */
+#sec-supporter :root {
+  --forest:  #3B6147;
+  --sage:    #5C8A65;
+  --sage-l:  #EAF2EB;
+  --sage-ll: #F3F8F4;
+  --amber:   #C4956A;
+  --amber-l: #FDF3E6;
+  --rose:    #B5685A;
+  --rose-l:  #F5EAE8;
+  --cream:   #FBF8F4;
+  --warm-wh: #FFFCF8;
+  --gray-d:  #2C2926;
+  --gray-m:  #7A736D;
+  --gray-l:  #EDE8E3;
+  --gray-b:  #D9D3CC;
+}
+#sec-supporter body { font-family: 'Hiragino Sans','Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif; background: #F0EDE7; color: var(--gray-d); font-size: 14px; line-height: 1.75; }
+#sec-supporter .page { max-width: 860px; margin: 36px auto 80px; }
+#sec-supporter /* ── Cover ── */
+.cover { background: var(--forest); border-radius: 16px 16px 0 0; padding: 48px 48px 40px; position: relative; overflow: hidden; }
+#sec-supporter .body { background: var(--warm-wh); border-radius: 0 0 16px 16px; padding: 48px; box-shadow: 0 4px 32px rgba(40,30,20,.08); }
+#sec-supporter /* ── Section ── */
+.sec-head { font-family: Georgia, serif; font-size: 20px; font-weight: 700; color: var(--forest); margin: 40px 0 6px; padding-bottom: 10px; border-bottom: 1.5px solid var(--gray-l); }
+#sec-supporter .sub-head { font-size: 15px; font-weight: 700; color: var(--forest); margin: 24px 0 10px; }
+#sec-supporter p { margin-bottom: 12px; }
+#sec-supporter strong { color: var(--gray-d); font-weight: 700; }
+#sec-supporter /* ── Highlight box ── */
+.callout { background: var(--amber-l); border-left: 3px solid var(--amber); border-radius: 8px; padding: 16px 20px; margin: 16px 0; font-size: 13px; line-height: 1.8; }
+#sec-supporter .callout strong { color: var(--amber); }
+#sec-supporter .callout-rose { background: var(--rose-l); border-left-color: var(--rose); }
+#sec-supporter .callout-rose strong { color: var(--rose); }
+#sec-supporter .callout-sage { background: var(--sage-l); border-left-color: var(--sage); }
+#sec-supporter .callout-sage strong { color: var(--sage); }
+#sec-supporter /* ── Timeline ── */
+.timeline { background: var(--cream); border: 0.5px solid var(--gray-b); border-radius: 12px; padding: 20px 24px; margin: 16px 0 24px; }
+#sec-supporter .tl-item { display: grid; grid-template-columns: 110px 1fr; gap: 16px; padding: 10px 0; border-bottom: 0.5px dashed var(--gray-b); align-items: start; }
+#sec-supporter .tl-item:last-child { border-bottom: none; }
+#sec-supporter .tl-date { font-size: 12px; font-weight: 700; color: var(--forest); font-family: Georgia, serif; }
+#sec-supporter .tl-now .tl-date { color: var(--rose); }
+#sec-supporter .tl-content { font-size: 13px; line-height: 1.7; }
+#sec-supporter .tl-tag { display: inline-block; font-size: 10px; padding: 2px 8px; border-radius: 10px; margin-right: 6px; font-weight: 600; letter-spacing: .04em; vertical-align: middle; }
+#sec-supporter .tag-current { background: var(--rose); color: #fff; }
+#sec-supporter .tag-incorp { background: var(--forest); color: #fff; }
+#sec-supporter .tag-tour { background: var(--amber); color: #fff; }
+#sec-supporter .tag-target { background: var(--sage); color: #fff; }
+#sec-supporter /* ── Options ── */
+.option-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 16px 0 8px; }
+#sec-supporter .option { border-radius: 12px; padding: 18px 20px; border: 0.5px solid var(--gray-b); background: var(--cream); }
+#sec-supporter .option.recommended { background: var(--sage-l); border: 1.5px solid var(--sage); position: relative; }
+#sec-supporter .option.recommended::after { content: "推奨"; position: absolute; top: -10px; right: 14px; background: var(--sage); color: #fff; font-size: 10px; padding: 3px 10px; border-radius: 10px; letter-spacing: .08em; }
+#sec-supporter .option.warn { background: var(--rose-l); border: 0.5px solid var(--rose); }
+#sec-supporter .opt-head { font-size: 14px; font-weight: 700; color: var(--gray-d); margin-bottom: 8px; }
+#sec-supporter .opt-meta { font-size: 11px; color: var(--gray-m); margin-bottom: 10px; }
+#sec-supporter .opt-body { font-size: 12.5px; line-height: 1.75; }
+#sec-supporter .opt-pros, #sec-supporter .opt-cons { font-size: 12px; margin-top: 8px; }
+#sec-supporter .opt-pros { color: var(--sage); }
+#sec-supporter .opt-cons { color: var(--rose); }
+#sec-supporter .opt-pros::before { content: "○ "; font-weight: 700; }
+#sec-supporter .opt-cons::before { content: "× "; font-weight: 700; }
+#sec-supporter /* ── Comparison table ── */
+.cmp-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 12.5px; }
+#sec-supporter .cmp-table th, #sec-supporter .cmp-table td { padding: 12px 14px; text-align: left; border-bottom: 0.5px solid var(--gray-l); vertical-align: top; }
+#sec-supporter .cmp-table th { background: var(--sage-ll); color: var(--forest); font-weight: 600; font-size: 12px; letter-spacing: .04em; }
+#sec-supporter .cmp-table th:first-child { width: 24%; }
+#sec-supporter .cmp-table tr:last-child td { border-bottom: none; }
+#sec-supporter .cmp-cell { line-height: 1.7; }
+#sec-supporter .cmp-mark { display: inline-block; font-size: 12px; font-weight: 700; margin-right: 4px; }
+#sec-supporter .mark-good { color: var(--sage); }
+#sec-supporter .mark-ok { color: var(--amber); }
+#sec-supporter .mark-mid { color: var(--gray-m); }
+#sec-supporter /* ── Action list ── */
+.action-list { background: var(--sage-ll); border-radius: 12px; padding: 20px 24px; margin: 16px 0; }
+#sec-supporter .action-item { display: grid; grid-template-columns: 28px 1fr; gap: 12px; padding: 8px 0; align-items: start; }
+#sec-supporter .action-num { width: 24px; height: 24px; border-radius: 50%; background: var(--forest); color: #fff; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+#sec-supporter .action-text { font-size: 13px; line-height: 1.7; }
+#sec-supporter .action-text strong { color: var(--forest); }
+#sec-supporter /* ── Card grid (case examples) ── */
+.case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0; }
+#sec-supporter .case { background: var(--cream); border: 0.5px solid var(--gray-b); border-radius: 10px; padding: 14px 16px; font-size: 12px; line-height: 1.7; }
+#sec-supporter .case-name { font-size: 13px; font-weight: 700; color: var(--forest); margin-bottom: 4px; }
+#sec-supporter .case-meta { font-size: 10.5px; color: var(--gray-m); margin-bottom: 8px; letter-spacing: .04em; }
+#sec-supporter .case-result { color: var(--rose); font-weight: 600; font-size: 12px; margin-top: 6px; }
+#sec-supporter /* ── Misc ── */
+.note { font-size: 11.5px; color: var(--gray-m); margin: 10px 0; font-style: italic; line-height: 1.7; }
+#sec-supporter ul.bul { list-style: none; padding-left: 0; margin: 8px 0 14px; }
+#sec-supporter ul.bul li { padding: 4px 0 4px 18px; position: relative; font-size: 13px; line-height: 1.7; }
+#sec-supporter ul.bul li::before { content: "▸"; position: absolute; left: 0; color: var(--sage); font-size: 11px; top: 6px; }
+#sec-supporter /* ── Footer ── */
+.footer { font-size: 11px; color: var(--gray-m); text-align: center; margin-top: 50px; padding-top: 20px; border-top: 0.5px solid var(--gray-l); letter-spacing: .04em; }
+#sec-supporter .page { margin: 0; }
+#sec-supporter .cover { border-radius: 0; padding: 32px 24px; }
+#sec-supporter .body { border-radius: 0; padding: 28px 20px; }
+#sec-supporter .option-grid, #sec-supporter .case-grid { grid-template-columns: 1fr; }
+#sec-supporter .cmp-table { font-size: 11.5px; }
+#sec-supporter .cmp-table th, #sec-supporter .cmp-table td { padding: 10px 8px; }
+#sec-supporter .tl-item { grid-template-columns: 80px 1fr; gap: 10px; }
+
+/* セクション内のレイアウト調整 */
+#sec-supporter .timeline { background: var(--cream); border: 0.5px solid var(--gray-b); border-radius: 12px; padding: 20px 24px; margin: 16px 0 24px; }
+#sec-supporter .tl-item { display: grid; grid-template-columns: 110px 1fr; gap: 16px; padding: 10px 0; border-bottom: 0.5px dashed var(--gray-b); align-items: start; }
+#sec-supporter .tl-item:last-child { border-bottom: none; }
+
+@media (max-width: 720px) {
+  #sec-supporter .option-grid,
+  #sec-supporter .case-grid { grid-template-columns: 1fr; }
+  #sec-supporter .tl-item { grid-template-columns: 80px 1fr; gap: 10px; }
+  #sec-supporter .cmp-table { font-size: 11.5px; }
+}
 </style>
 </head>
 <body>
@@ -283,6 +396,7 @@ body { font-family: 'Hiragino Sans','Hiragino Kaku Gothic ProN','Noto Sans JP',s
       <div class="tab" onclick="show('partner')">🤝 コラボパートナー</div>
       <div class="tab" onclick="show('benchmark')" style="color:var(--amber)">🔍 参考ブランド分析</div>
       <div class="tab" onclick="show('schedule')" style="color:var(--forest);font-weight:600">📅 スケジュール<span class="tab-new">NEW</span></div>
+      <div class="tab" onclick="show('supporter')" style="color:var(--rose);font-weight:600">💝 サポーター制度<span class="tab-new">NEW</span></div>
     </div>
 
     <!-- ══════════════════════════════════════════ -->
@@ -1515,7 +1629,481 @@ f Facebook: TambunProject
 
     </div>
 
-  </div><!-- /body -->
+  
+    <!-- ══════════════════════════════════════════ -->
+    <!-- TAB 9: SUPPORTER PROGRAM -->
+    <!-- ══════════════════════════════════════════ -->
+    <div id="sec-supporter" class="section">
+
+      <!-- ─── タブイントロ ─── -->
+      <div class="sec-head" style="color:var(--rose)">💝 サポーター制度ローンチ計画</div>
+      <p class="sec-sub">7月の一般社団法人化に合わせて、年会費・月額のサポーター制度を立ち上げます。本タブはローンチまでの戦略・選択肢・ネクストアクションをまとめた検討資料です。</p>
+
+      <div class="info-box" style="margin-bottom:20px;background:var(--rose-l);border-left:3px solid var(--rose);padding:14px 18px;border-radius:0 8px 8px 0">
+        <strong style="color:var(--rose)">本タブの位置づけ：</strong> サポーター制度（年会費6,000円／月額500円）の立ち上げに向けた、プラットフォーム比較・6/6コンサートでの動線・プレスリリース戦略・ネクストアクションの統合プラン。決定までは検討資料として扱い、合意形成後に各メンバーの担当タスクへ落とし込みます。
+      </div>
+
+
+  <!-- ────────── 1. 検討の前提 ────────── -->
+  <h2 class="sec-head">1. 検討の前提となる時間軸</h2>
+  <p class="sec-sub">「7月法人化」と「タイツアー前の現地接点は6/6のみ」という制約を可視化する</p>
+
+  <div class="timeline">
+    <div class="tl-item tl-now">
+      <div class="tl-date">2026.06.06</div>
+      <div class="tl-content">
+        <span class="tl-tag tag-current">現在 / 唯一の現地接点</span>
+        <strong>「Music with no border 2026 — Road to THAILAND —」</strong>（タイツアー壮行コンサート）<br>
+        <span style="font-size:12px; color:var(--gray-m); line-height:1.7; display:inline-block; margin-top:4px;">
+          会場：タカギクラヴィア松濤サロン（渋谷区松濤1-26-4）／18:30開場・19:00開演<br>
+          出演：Tambun Project ─ 新妻由佳子（Vo）、宮野寛子（Pf）<br>
+          料金：4,700円（前売）／5,000円（当日）＋1ドリンク制<br>
+          予約フォーム：<a href="https://x.gd/kdY1w" style="color:var(--forest); text-decoration:underline;">https://x.gd/kdY1w</a>　／　お問い合わせ：tambunproject2017@gmail.com<br>
+          ＋ リコちゃんグッズ販売開始
+        </span><br>
+        <strong style="color:var(--rose);">ただし法人未設立 — 法人名義での会員登録・領収書発行は不可</strong>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2026.07.01</div>
+      <div class="tl-content">
+        <span class="tl-tag tag-incorp">法人化</span>
+        一般社団法人タンブンプロジェクト 登記<br>
+        登記後、法人口座開設・決済プラットフォーム正式契約が可能に
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2026.07.28<br>〜08.03</div>
+      <div class="tl-content">
+        <span class="tl-tag tag-tour">タイツアー</span>
+        今年最大のイベント。8/2 バンコクプラネタリウム公演はTV取材可能性大<br>
+        <strong>ツアー中は新規接点ほぼゼロ（メディア露出のみ）</strong>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2026 秋</div>
+      <div class="tl-content">
+        <span class="tl-tag tag-target">本番</span>
+        報告コンサート — サポーター・スポンサー募集の主戦場<br>
+        ここまでに決済導線が完全に整っている必要がある
+      </div>
+    </div>
+  </div>
+
+  <div class="callout callout-rose">
+    <strong>悩みどころ：</strong>タイツアー前のリアル接点が6/6しかない。ここで何も仕掛けないと、ツアー成果の盛り上がりを秋まで「冷ます」ことになる。一方で法人化前なので、その場でクレジットカード会員登録を成立させるのは難しい。
+  </div>
+
+  <!-- ────────── 2. 6/6で何ができるか ────────── -->
+  <h2 class="sec-head">2. 6/6で取りうる選択肢（法人化前の打ち手）</h2>
+  <p class="sec-sub">「お金を預かるか／預からないか」「正式登録か／予約登録か」で4パターン</p>
+
+  <div class="option-grid">
+    <div class="option recommended">
+      <div class="opt-head">A. 先行予約（メール登録）</div>
+      <div class="opt-meta">お金は預からない／法的負担ゼロ</div>
+      <div class="opt-body">
+        ブースに「サポーター制度 先行予約」のQRコードを掲示。来場者は名前・メール・希望プラン（年/月）を入力するだけ。<br>
+        <strong>7/1の法人化アナウンス時に、決済リンク付き招待メールを一斉送付。</strong>
+      </div>
+      <div class="opt-pros">法務的にクリーン。リスト化で7月以降のCV率が上がる</div>
+      <div class="opt-cons">その場での「commitment」は弱め（フォロー前提）</div>
+    </div>
+
+    <div class="option">
+      <div class="opt-head">B. 任意団体名義で先行決済</div>
+      <div class="opt-meta">SyncableもCongrantも任意団体OK</div>
+      <div class="opt-body">
+        両プラットフォームとも任意団体での登録が可能。6/6時点で課金を始められる。<br>
+        ただし7/1法人化後、団体名義・口座・会員データを法人へ移管する作業が発生する。
+      </div>
+      <div class="opt-pros">熱量が高いうちに課金を取れる</div>
+      <div class="opt-cons">移管の事務負担＋会員側に「途中で振替案内」が必要</div>
+    </div>
+
+    <div class="option warn">
+      <div class="opt-head">C. 個人Stripe で一時受付</div>
+      <div class="opt-meta">非推奨</div>
+      <div class="opt-body">
+        Stripeを個人名義で開設し、6/6で課金開始。<br>
+        個人事業主として所得計上が必要となり、税務上の処理が煩雑。会員側にも混乱を与える。
+      </div>
+      <div class="opt-cons">税務・会計上のリスクが大きく、団体の信頼性に影響する可能性</div>
+    </div>
+
+    <div class="option">
+      <div class="opt-head">D. 現金カンパ＋紙の受領証</div>
+      <div class="opt-meta">アナログ併用</div>
+      <div class="opt-body">
+        その場で年会費を払いたい来場者には現金で受領し、紙の手書き受領証を発行。<br>
+        7/1以降に法人正式領収書を改めて郵送。
+      </div>
+      <div class="opt-pros">熱量を逃さない／高齢層・現金派にも対応可</div>
+      <div class="opt-cons">会計処理が煩雑／紛失リスク／法人化前の入金扱いの整理が必要</div>
+    </div>
+  </div>
+
+  <div class="callout callout-sage">
+    <strong>推奨の組み合わせ：</strong>
+    <strong>A（先行予約）をメイン</strong>に、<strong>D（現金カンパ）を補助</strong>として併用。<br>
+    「正式な会員登録は7/1〜開始予定です。本日は先行予約とカンパのみ受け付けます」と明示すれば、来場者にも誠実に映る。<br>
+    任意団体段階での課金開始（B）は、移管コストと混乱リスクに見合わない。
+  </div>
+
+  <!-- ────────── 3. 6/6で熱量を残す仕掛け ────────── -->
+  <h2 class="sec-head">3. 6/6で「熱量を残す」具体の仕掛け</h2>
+  <p class="sec-sub">先行予約をただ集めるのではなく、その場で commit してもらう小さな儀式を作る</p>
+
+  <ul class="bul">
+    <li><strong>「タイへ名前を持っていく」プログラム：</strong>先行予約者の名前をタイツアーの記念パネル/プログラムに掲載。8月の現地写真と一緒にお礼メール送付。</li>
+    <li><strong>サポーター先行特典：</strong>6/6先行予約者には、秋コンサートの優先予約権 or リコちゃんグッズミニ特典。</li>
+    <li><strong>ブース動線の工夫：</strong>グッズ販売ブースに「サポーター先行予約」QRコードを大きく掲示、または来場者へ案内リリース（A5チラシ）を配布。スタッフへの負担を増やさず接点を作る。</li>
+    <li><strong>カウンターつき進捗ボード：</strong>会場に「先行予約 ◯/100」の手書きボードを置き、登録ごとにシールを貼る。残席感を演出。</li>
+    <li><strong>会場限定の動画／メッセージ：</strong>タイ・ラオスの子どもたちからのメッセージ動画を予約者だけに会場でQR配信。</li>
+  </ul>
+
+  <div class="callout">
+    <strong>もう一つの接点を作る案：</strong>6/6からタイツアー出発までの間に、<strong>オンライン壮行ミーティング（Zoom 30分）</strong>を1回設定。先行予約者・SNSフォロワーへ案内。法人化後の制度説明＋ツアー直前トーク。これで6/6で取りこぼした人を秋まで温める。
+  </div>
+
+  <!-- ────────── 4. プラットフォーム比較 ────────── -->
+  <h2 class="sec-head">4. プラットフォーム比較（Syncable vs コングラント）</h2>
+  <p class="sec-sub">前回の整理を修正：両社ともキャンペーン型・日常運営の両方ができる。違いは「看板機能」と「集客の入口」</p>
+
+  <table class="cmp-table">
+    <tr>
+      <th>項目</th>
+      <th>Syncable</th>
+      <th>コングラント</th>
+    </tr>
+    <tr>
+      <td><strong>キャンペーン型集客</strong></td>
+      <td class="cmp-cell"><span class="cmp-mark mark-good">◎</span>マンスリーファンディングが看板。1〜2ヶ月で50〜100人の継続寄付者を集める達成事例多数</td>
+      <td class="cmp-cell"><span class="cmp-mark mark-good">◎</span>クラウドファンディング手数料3.4%は国内最安級。マンスリー寄付挑戦プログラム・小さな団体応援プログラムあり</td>
+    </tr>
+    <tr>
+      <td><strong>会費・領収書管理</strong></td>
+      <td class="cmp-cell"><span class="cmp-mark mark-ok">○</span>できるが二次的機能</td>
+      <td class="cmp-cell"><span class="cmp-mark mark-good">◎</span>「都度寄付」「マンスリー」「会費決済」を1画面で管理。領収書ワンクリック発行が看板</td>
+    </tr>
+    <tr>
+      <td><strong>外部からの流入</strong></td>
+      <td class="cmp-cell"><span class="cmp-mark mark-good">◎</span>Syncable自体の閲覧者が多く、団体探索ページから自然流入が期待できる</td>
+      <td class="cmp-cell"><span class="cmp-mark mark-mid">△</span>自前のSNS・WEB集客が前提</td>
+    </tr>
+    <tr>
+      <td><strong>伴走支援</strong></td>
+      <td class="cmp-cell"><span class="cmp-mark mark-good">◎</span>ファンドレイザーが戦略から伴走（マンスリーファンディング前提）</td>
+      <td class="cmp-cell"><span class="cmp-mark mark-good">◎</span>ライトプラン以上で戦略〜実行〜評価まで伴走（成果報酬型）</td>
+    </tr>
+    <tr>
+      <td><strong>手数料</strong></td>
+      <td class="cmp-cell">初期/月額無料・決済5%。<strong>寄付者が手数料を肩代わりできる機能で実質0%も可能（利用率7割）</strong></td>
+      <td class="cmp-cell">クラファン全手数3.4%。JCNE認証団体は20%割引・IT導入補助金で最大1/2補助の可能性</td>
+    </tr>
+    <tr>
+      <td><strong>任意団体・小規模対応</strong></td>
+      <td class="cmp-cell"><span class="cmp-mark mark-good">◎</span>任意団体OK・初期/月額無料</td>
+      <td class="cmp-cell"><span class="cmp-mark mark-good">◎</span>任意団体OK・60日間無料お試し</td>
+    </tr>
+    <tr>
+      <td><strong>看板機能の方向性</strong></td>
+      <td class="cmp-cell"><strong style="color:var(--rose);">「新規ファン獲得・キャンペーン爆発力」</strong></td>
+      <td class="cmp-cell"><strong style="color:var(--forest);">「日常運営の自動化・会員管理の精度」</strong></td>
+    </tr>
+  </table>
+
+  <h3 class="sub-head">活動構造が似ている団体の実例</h3>
+
+  <div class="case-grid">
+    <div class="case">
+      <div class="case-name">JHP・学校をつくる会（認定NPO）</div>
+      <div class="case-meta">音楽・美術教育 × 海外の子ども支援</div>
+      コングラント利用。タンブンと活動構造がほぼ同じ — 海外の子どもたちに芸術教育を届ける継続支援モデル。
+    </div>
+    <div class="case">
+      <div class="case-name">コンフロントワールド</div>
+      <div class="case-meta">国際協力NGO（日本・アフリカ）</div>
+      Syncable利用。任意団体段階から導入し、NPO法人化時点で既に50人以上のマンスリーサポーターを獲得済みでスタート。
+      <div class="case-result">→ 法人化との接続が滑らかな成功事例</div>
+    </div>
+    <div class="case">
+      <div class="case-name">Stand with Syria Japan</div>
+      <div class="case-meta">紛争支援・特定地域への継続支援</div>
+      Syncable利用。目標50人→51人達成、毎月79,500円（年954,000円）。
+      <div class="case-result">→ 「特定の海外地域へ届ける」モデルの典型成功</div>
+    </div>
+    <div class="case">
+      <div class="case-name">CATSWELCARE ネコ福祉協会</div>
+      <div class="case-meta">設立2019年・小規模団体</div>
+      Syncable利用。当初30人目標→81人達成、毎月113,976円（年136万円）。
+      <div class="case-result">→ 設立浅い小規模団体の到達点として現実的</div>
+    </div>
+  </div>
+
+  <!-- ────────── 5. 推奨シナリオ ────────── -->
+  <h2 class="sec-head">5. 推奨シナリオと判断基準</h2>
+  <p class="sec-sub">どちらか1社に絞るための質問は3つ</p>
+
+  <div class="callout callout-sage">
+    <strong>シナリオA：日常運営の自動化を優先するなら → コングラント</strong><br>
+    7/1法人化と同時に「年会費・月額・コンサート都度寄付」の3軸を1画面で管理開始。秋コンサートの本格募集に向けて事務の足腰を固める。JHPと同じ構造の認定NPOが既に採用している実例も追い風。
+  </div>
+
+  <div class="callout callout-sage">
+    <strong>シナリオB：タイツアーの熱量で一気に獲得したいなら → Syncable</strong><br>
+    7月中に「タイツアー応援マンスリーファンディング」を立ち上げ、ツアー写真と連動して8月中に50〜100人を狙う。Syncableの伴走ファンドレイザーが戦略設計に入る。秋コンサートはダメ押しの位置づけに。
+  </div>
+
+  <h3 class="sub-head">無料相談で必ず聞くべき3つの質問</h3>
+
+  <div class="action-list">
+    <div class="action-item">
+      <div class="action-num">1</div>
+      <div class="action-text">
+        <strong>コンサート会場でiPad/スマホからその場でクレジットカード登録できるか</strong>（タッチ決済対応／QRコード対応／オフライン時の挙動）
+      </div>
+    </div>
+    <div class="action-item">
+      <div class="action-num">2</div>
+      <div class="action-text">
+        <strong>「7月法人化お披露目マンスリーファンディング」を仕掛ける場合、どんな伴走をしてくれるか</strong>（戦略設計・告知文・KPI設定）
+      </div>
+    </div>
+    <div class="action-item">
+      <div class="action-num">3</div>
+      <div class="action-text">
+        <strong>木村花代さん起用の8/2バンコクプラネタリウム公演をフックに、日本国内向けキャンペーンを設計できるか</strong>（メディア露出との連動・スポンサー企業との接続）
+      </div>
+    </div>
+  </div>
+
+  <!-- ────────── 6. プレスリリース戦略 ────────── -->
+  <h2 class="sec-head">6. プレスリリース戦略</h2>
+  <p class="sec-sub">掲載日縛りで3パターンを作り分ける — 法人化前後で何を入れて何を入れないか</p>
+
+  <div class="callout callout-rose">
+    <strong>守るべきルール：</strong>
+    社団法人化に触れるリリースは<strong>7/1以降の掲載日</strong>のみ。
+    6/6以降の掲載は<strong>タイツアー内容をメイン</strong>に。
+    サポーター制度の言及有無は<strong>今後検討</strong>（決定までは含めない）。
+  </div>
+
+  <h3 class="sub-head">6.1 掲載日別の3パターン</h3>
+
+  <table class="cmp-table">
+    <tr>
+      <th>パターン</th>
+      <th>掲載日</th>
+      <th>主軸メッセージ／含めるもの</th>
+      <th>含めないもの</th>
+    </tr>
+    <tr>
+      <td><strong style="color:var(--rose);">A</strong><br><span style="font-size:11px;color:var(--gray-m);">壮行告知</span></td>
+      <td>〜6/5</td>
+      <td class="cmp-cell">
+        <strong>主軸：6/6 渋谷松濤 壮行コンサート告知</strong><br>
+        ・コンサート詳細（日時／会場／出演者）<br>
+        ・タイ・ラオスでの過去活動実績（2018年〜）<br>
+        ・8月タイツアーの予告（軽く触れる）<br>
+        ・リコちゃんグッズ販売開始
+      </td>
+      <td class="cmp-cell">
+        ・法人化（7/1前なので不可）<br>
+        ・サポーター制度<br>
+        ・法人名義での署名
+      </td>
+    </tr>
+    <tr>
+      <td><strong style="color:var(--amber);">B</strong><br><span style="font-size:11px;color:var(--gray-m);">ツアー予告</span></td>
+      <td>6/7〜6/30</td>
+      <td class="cmp-cell">
+        <strong>主軸：8月タイツアー予告</strong><br>
+        ・タイツアー全日程（7/31バンコク日本人学校、8/1シーカーアジア、8/2バンコクプラネタリウム）<br>
+        ・8/2 Kind Angel Association共催・元劇団四季 木村花代氏ゲスト出演<br>
+        ・教育庁ほか連携、メディア露出予定<br>
+        ・6/6壮行コンサート開催の余韻（写真活用）
+      </td>
+      <td class="cmp-cell">
+        ・法人化（7/1前なので不可）<br>
+        ・サポーター制度
+      </td>
+    </tr>
+    <tr>
+      <td><strong style="color:var(--forest);">C</strong><br><span style="font-size:11px;color:var(--gray-m);">法人化＋ツアー</span></td>
+      <td>7/1〜</td>
+      <td class="cmp-cell">
+        <strong>主軸：一般社団法人化のお知らせ＋タイツアー</strong><br>
+        ・一般社団法人タンブンプロジェクト 設立<br>
+        ・タイツアー詳細（パターンBと同内容）<br>
+        ・過去の対外実績（外務省グローバルフェスタ2025フォトコン受賞、駐タイ日本国大使視察 等）<br>
+        ・今後のビジョン
+      </td>
+      <td class="cmp-cell">
+        ・サポーター制度（<strong style="color:var(--rose);">含めるか今後検討</strong>）
+      </td>
+    </tr>
+  </table>
+
+  <div class="callout">
+    <strong>パターンCで分割する選択肢：</strong>
+    7/1当日に「法人化のお知らせ」を単独で出し、その後数日空けて「タイツアー予告」を別リリースで出すと、<strong>同じ媒体に2回露出</strong>するチャンスができる。媒体側もネタが分かれていた方が記事化しやすい。
+  </div>
+
+  <h3 class="sub-head">6.2 媒体ターゲット候補</h3>
+
+  <table class="cmp-table">
+    <tr>
+      <th>カテゴリ</th>
+      <th>媒体例</th>
+      <th>パターン適合</th>
+    </tr>
+    <tr>
+      <td><strong>一般PR配信</strong></td>
+      <td class="cmp-cell">PR TIMES（後述の非営利プログラム適用可能）／@Press</td>
+      <td class="cmp-cell">A／B／C 全て</td>
+    </tr>
+    <tr>
+      <td><strong>渋谷ローカル</strong></td>
+      <td class="cmp-cell">シブヤ経済新聞</td>
+      <td class="cmp-cell">A（渋谷松濤開催を地元媒体に直接）</td>
+    </tr>
+    <tr>
+      <td><strong>タイ・日本系</strong></td>
+      <td class="cmp-cell">バンコク経済新聞／newsclip.be（タイ日本人向け）</td>
+      <td class="cmp-cell">B／C（タイツアー本体）</td>
+    </tr>
+    <tr>
+      <td><strong>国際協力・社会貢献</strong></td>
+      <td class="cmp-cell">alterna／greenz.jp／SDGs ACTION（朝日新聞）／Yahoo!ニュース</td>
+      <td class="cmp-cell">B／C</td>
+    </tr>
+    <tr>
+      <td><strong>音楽系</strong></td>
+      <td class="cmp-cell">ぴあ／Rolling Stone Japan／CDジャーナル</td>
+      <td class="cmp-cell">A／B</td>
+    </tr>
+    <tr>
+      <td><strong>教育系</strong></td>
+      <td class="cmp-cell">教育新聞</td>
+      <td class="cmp-cell">B／C（音楽教育の文脈）</td>
+    </tr>
+    <tr>
+      <td><strong>地域・コラボ団体</strong></td>
+      <td class="cmp-cell">出演者所属団体・コラボ団体経由の二次拡散</td>
+      <td class="cmp-cell">A／B／C 全て</td>
+    </tr>
+  </table>
+
+  <h3 class="sub-head">6.3 PR TIMES 非営利団体サポートプロジェクトの活用</h3>
+
+  <div class="callout callout-sage">
+    <strong>大きなコスト削減チャンス：</strong>PR TIMESには非営利団体向けの無料プログラムがある。<br>
+    ・<strong>チャレンジプログラム</strong>：設立5年未満の団体に1年間サービス無償提供<br>
+    ・<strong>スタンダードプログラム</strong>：設立5年以上の団体に無期限無償提供<br>
+    通常1件3万円の配信料がゼロになる可能性。
+  </div>
+
+  <p>ただし、一般社団法人については<strong>「非営利徹底型」に限る</strong>という制約がある（普通型は対象外）。</p>
+
+  <div class="callout callout-rose">
+    <strong>法人化前の確認事項：</strong>
+    司法書士が準備中の定款で、一般社団法人を<strong>「非営利徹底型」</strong>として設立しているか確認。
+    剰余金の分配を行わない・解散時の残余財産を公益的団体に帰属させるなどの規定が定款に入っていれば該当する。<br>
+    この型でないとPR TIMES無料プログラムが使えない可能性があるため、登記前に司法書士へ確認すべき。
+  </div>
+
+  <p>「設立5年」の判定について：タンブンプロジェクト の任意団体としての活動は2018年〜だが、法人格としての設立は2026年7月。<strong>どちらで判定されるかはPR TIMESに直接問い合わせて確認する</strong>のが確実。任意団体時代の活動実績を申請書類に盛り込めば、スタンダードプログラム適用の可能性もある。</p>
+
+  <h3 class="sub-head">6.4 サポーター制度をリリースに入れるか</h3>
+
+  <p>結論は<strong>今後検討</strong>だが、判断材料として：</p>
+
+  <ul class="bul">
+    <li><strong>入れるメリット</strong>：法人化アナウンス（パターンC）と同時に出すと「設立→支援募集」の流れが自然。記事化される際に「サポーター募集中」の一文が入る可能性がある。</li>
+    <li><strong>入れないメリット</strong>：リリースのメッセージが分散しない。決済導線が整う前にアナウンスして「申し込みたいのに窓口がない」という事態を避けられる。</li>
+    <li><strong>判断基準</strong>：7/1時点でSyncable／コングラントの契約・決済導線が完成しているか。完成していれば入れる、不確実なら省略する。</li>
+  </ul>
+
+  <!-- ────────── 7. ネクストアクション ────────── -->
+  <h2 class="sec-head">7. 直近のネクストアクション</h2>
+  <p class="sec-sub">5月中に動かすべきこと</p>
+
+  <div class="action-list">
+    <div class="action-item">
+      <div class="action-num">1</div>
+      <div class="action-text">
+        <strong>Syncable・コングラント両社に資料請求＋無料相談を申し込む</strong>（上記3つの質問を事前に共有）
+      </div>
+    </div>
+    <div class="action-item">
+      <div class="action-num">2</div>
+      <div class="action-text">
+        <strong>サポーター制度の先行予約フォームを準備</strong>（Google Forms等で十分。名前・メール・希望プラン・コメント欄）<br>
+        <span style="font-size:11.5px; color:var(--gray-m);">※コンサートチケット予約フォーム（<a href="https://x.gd/kdY1w" style="color:var(--gray-m);">https://x.gd/kdY1w</a>）とは別物。サポーター先行予約は新規に作成する。</span>
+      </div>
+    </div>
+    <div class="action-item">
+      <div class="action-num">3</div>
+      <div class="action-text">
+        <strong>6/6グッズ販売ブースで「サポーター先行予約」QRコード掲示するか、来場者に案内リリースを配布の検討</strong>
+      </div>
+    </div>
+    <div class="action-item">
+      <div class="action-num">4</div>
+      <div class="action-text">
+        <strong>サポーター制度の「提供価値」を最終化</strong>（会報・オンラインMTG・優先予約・名前掲載などの具体メニュー）
+      </div>
+    </div>
+    <div class="action-item">
+      <div class="action-num">5</div>
+      <div class="action-text">
+        <strong>7/1法人化お知らせ＋会員募集開始の告知投稿を準備</strong>（6/6先行予約者へのフォローメール文面も同時に）
+      </div>
+    </div>
+    <div class="action-item">
+      <div class="action-num">6</div>
+      <div class="action-text">
+        <strong>プレスリリース パターンA（〜6/5掲載）を5月中に脱稿</strong>（6/6壮行コンサート告知。媒体プッシュは5月下旬から開始）
+      </div>
+    </div>
+    <div class="action-item">
+      <div class="action-num">7</div>
+      <div class="action-text">
+        <strong>プレスリリース パターンB（6/7〜6/30掲載）／C（7/1〜）のドラフト準備</strong>（タイツアー詳細・法人化お知らせの素案を5月末までに）
+      </div>
+    </div>
+    <div class="action-item">
+      <div class="action-num">8</div>
+      <div class="action-text">
+        <strong>定款が「非営利徹底型」になっているか司法書士に確認</strong>（PR TIMES無料プログラム適用可否に直結）
+      </div>
+    </div>
+    <div class="action-item">
+      <div class="action-num">9</div>
+      <div class="action-text">
+        <strong>PR TIMES 非営利団体サポートプロジェクトへの申請</strong>（法人化後に正式申請。「設立5年」判定の扱いを事前問い合わせ）
+      </div>
+    </div>
+    <div class="action-item">
+      <div class="action-num">10</div>
+      <div class="action-text">
+        <strong>媒体ターゲットリストの作成</strong>（シブヤ経済新聞・バンコク経済新聞・alterna・教育新聞など、直接アプローチ先のメールアドレス収集）
+      </div>
+    </div>
+  </div>
+
+  <p class="note">
+    本資料は2026年5月時点の各サービス公開情報（公式サイト・ヘルプ・導入事例記事）に基づく整理です。手数料・プラン内容は変更される可能性があるため、最終判断前に各社へ直接確認することを推奨します。
+  </p>
+
+  
+
+
+
+    </div>
+
+</div><!-- /body -->
 </div><!-- /page -->
 
 <script>
